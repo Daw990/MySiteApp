@@ -1,0 +1,128 @@
+/* Background pattern from Toptal Subtle Patterns */
+body {
+    background-image: url(../../../../../../moja Strona http/img/criss-cross.png);
+}
+
+nav {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 30px;
+}
+
+footer {
+    background-color: #d9d9d9;
+    min-height: 50px;
+    height: auto;
+    padding-left: 5%;
+    padding-right: 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    justify-content: center;
+}
+
+header {
+    background-color: white;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+a {
+    color: #F39117;
+}
+a:active {
+    background-color: #F39117;
+}
+
+a:hover{
+    color: #F39117;
+}
+
+.container {
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
+.center-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 15px;
+    padding-top: 20px;
+}
+
+.color-row {
+    background-color: white;
+    padding: 40px 40px;
+}
+
+.space-bottom {
+    padding-bottom: 25px;;
+}
+
+.bold {
+    font-size: bold;
+}
+
+.margin-bot {
+    margin-bottom: 15px;
+}
+
+.center-slider {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    display: block;
+    padding-bottom: 20px;
+}
+
+.img-size {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+}
+
+.techs {
+    padding-top: 25px;
+}
+
+.footer-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-end{
+    display: flex;
+    align-items: flex-end;
+}
+
+
+.scrollTopButton {
+     width: 60px;
+     height: 60px;
+     position: fixed;
+     visibility: hidden;
+     overflow: hidden;
+     z-index: 99999999;
+     background-image: url(../../../../../../moja Strona http/img/arrow.png);
+     right: 30px;
+     bottom: 30px;
+     transition: all 0.5s ease-in-out;
+}
+
+.scrollTopButton.show {
+     visibility: visible;
+     cursor: pointer;
+     transition: all 0.5s ease-in-out;
+}
+
+
+
+
+
