@@ -18,4 +18,10 @@ public class RestControllerApi {
     public List<Cytaty> getCytaty() {
         return cytatyRepoService.cytatyFindAll();
     }
+
+    @GetMapping("/test/cytat")
+    public Cytaty getCytat() {
+        return cytatyRepoService.findOneRandomCytat();
+    }
+
 }

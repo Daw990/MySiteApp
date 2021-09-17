@@ -17,17 +17,24 @@
   </head>
   <body>
 
-  <div th:insert="static/navbar.html :: header"></div>
+  <div th:insert="staticContent/navbar.html :: header"></div>
 
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <div th:insert="static/about-me.html">
+                <div th:insert="staticContent/about-me.html">
                 </div>
-                <div th:insert="static/fast-menu.html" class="sticky-top">
+                <div th:insert="staticContent/fast-menu.html" class="sticky-top">
                 </div>
             </div>
             <div class="col-md-8">
+                <div class="color-row-cytat margin-bot">
+                    <hr>
+                    <div th:text="${cytat.getCytat()}" class="cytat-design"></div>
+                    <div th:text="${cytat.getAutor()}" class="cytat-author-design"></div>
+                    <hr>
+                    <div><?php echo date(H:i:s'); ?></div>
+                </div>
                 <div class="color-row margin-bot">
                     <h2>UMIEJĘTNOŚCI TECHNICZNE</h2>
                     <hr>
@@ -290,7 +297,7 @@
 
     <span class="scrollTopButton"></span>
 
-    <div th:include="static/footer.html">
+    <div th:include="staticContent/footer.html">
     </div>
 
     <!-- Optional JavaScript -->
@@ -302,5 +309,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="js/simple-slide.js"></script>
+  <script>
+      $(document).ready(function(){
+          $("#div_refresh").load(".php");
+          setInterval(function() {
+              $("#div_refresh").load("load.php");
+          }, 1000);
+      });
+  </script>
 </body>
 </html>

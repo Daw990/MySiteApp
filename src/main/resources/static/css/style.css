@@ -60,6 +60,22 @@ a:hover{
     padding: 40px 40px;
 }
 
+.color-row-cytat {
+    background-color: white;
+    padding: 10px 50px;
+}
+
+.cytat-design {
+    text-align: center;
+    font-style: italic;
+    font-size: large;
+}
+
+.cytat-author-design {
+    text-align: right;
+    font-size: small;
+}
+
 .space-bottom {
     padding-bottom: 25px;;
 }

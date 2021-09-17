@@ -17,12 +17,12 @@
 </head>
 <body>
 
-<div th:insert="static/navbar.html :: header"></div>
+<div th:insert="staticContent/navbar.html :: header"></div>
 
 <div class="container">
   <div class="row">
     <div class="col-md-4">
-      <div th:insert="static/about-me.html">
+      <div th:insert="staticContent/about-me.html">
       </div>
     </div>
     <div class="col-md-8">
@@ -41,7 +41,7 @@
 </div>
 
 <span class="scrollTopButton"></span>
-<div th:include="static/footer.html"></div>
+<div th:include="staticContent/footer.html"></div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script

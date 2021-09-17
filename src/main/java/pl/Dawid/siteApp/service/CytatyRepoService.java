@@ -6,6 +6,7 @@ import pl.Dawid.siteApp.entity.Cytaty;
 import pl.Dawid.siteApp.repository.CytatyRepo;
 
 import java.util.List;
+import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
@@ -17,8 +18,10 @@ public class CytatyRepoService {
         return cytatyRepo.findAll();
     }
 
-//    public Cytaty findOneRandomCytat() {
-//        List<Cytaty> cytaty = cytatyRepo.findAll();
-//    }
+    public Cytaty findOneRandomCytat() {
+        List<Cytaty> cytaty = cytatyRepo.findAll();
+        Random rand = new Random();
+        return cytaty.get(rand.nextInt(cytaty.size()));
+    }
 
 }
