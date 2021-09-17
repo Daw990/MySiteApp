@@ -16,8 +16,7 @@
   </head>
   <body>
 
-    <div id="navbar-include">
-    </div>
+  <div th:insert="static/navbar.html :: header"></div>
 
   <div class="container">
     <div class="row">
@@ -77,7 +76,7 @@
 
   <span class="scrollTopButton"></span>
 
-  <div id="footer-include">
+  <div th:include="static/footer.html">
   </div>
 
     <!-- Optional JavaScript -->

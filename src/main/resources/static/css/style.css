@@ -1,6 +1,6 @@
 /* Background pattern from Toptal Subtle Patterns */
 body {
-    background-image: url(../../../../../../moja Strona http/img/criss-cross.png);
+    background-image: url(../img/criss-cross.png);
 }
 
 nav {
@@ -110,7 +110,7 @@ a:hover{
      visibility: hidden;
      overflow: hidden;
      z-index: 99999999;
-     background-image: url(../../../../../../moja Strona http/img/arrow.png);
+     background-image: url(/img/arrow.png);
      right: 30px;
      bottom: 30px;
      transition: all 0.5s ease-in-out;

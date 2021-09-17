@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/social.css">
+
+    <link rel="icon" href="img/daw_logo.png">
+
+    <title>Dawid Marszałkowski - O mnie</title>
+  </head>
+  <body>
+
+  <div th:insert="static/navbar.html :: header"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div th:insert="static/about-me.html">
+                </div>
+                <div th:insert="static/fast-menu.html" class="sticky-top">
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="color-row margin-bot">
+                    <h2>UMIEJĘTNOŚCI TECHNICZNE</h2>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <ul>
+                                <li>
+                                    Java 8, 11
+                                </li>
+                                <li>
+                                    Spring Boot
+                                </li>
+                                <li>
+                                    Spring Security
+                                </li>
+                                <li>
+                                    Jpa, Hibernate
+                                </li>
+                                <li>
+                                    Thymeleaf
+                                </li>
+                                <li>
+                                    JUnit, Mockito
+                                </li>
+                                <li>
+                                    JS, HTML, CSS
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            Bazy danych
+                            <ul>
+                                <li>
+                                    H2
+                                </li>
+                                <li>
+                                    MySql
+                                </li>
+                            </ul>
+                            Programowanie
+                            <ul>
+                                <li>
+                                    Obiektowe
+                                </li>
+                                <li>
+                                    Aspektowe
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            System kontroli wersji
+                            <ul>
+                                <li>
+                                    Git
+                                </li>
+                                <li>
+                                    SVN
+                                </li>
+                            </ul>
+                            Języki
+                            <ul>
+                                <li>
+                                    Angielski B1
+                                </li>
+                                <li>
+                                    Niemiecki A1
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="color-row margin-bot">
+                    <h2>PROJEKTY</h2>
+                    <hr>
+                    <ul>
+                        <li>
+                            <a href="/projects#hairdresser"><b>hairdresserSaveData</b></a>
+                            - aplikacja webowa do zarządzania czasem salonu fryzjerskiego
+                        </li>
+                        <li>
+                            <a href="/projects#carsharing"><b>Car-Sharing-RestApi</b></a>
+                            - aplikacja typu REST pokazująca jak pozbyć się problemu hibernate n+1
+                        </li>
+                        <li>
+                            <a href="/projects#carmechanic"><b>Car-Mechanic</b></a>
+                            - aplikacja webowa do zarządzania czasem w firmie świadczącej usługi mechaniczne samochodów osobowych
+                        </li>
+                        <li>
+                            <a href="/projects#oauth"><b>OAuth with Google and GitHub</b></a>
+                            - aplikacja pokazująca możliwość zalogowania za pomocą protokołu OAuth2
+                        </li>
+                        <li>
+                            <a href="/projects#quiz"><b>Android-Studio-Quiz</b></a>
+                            - aplikacja mobilna (quiz) napisana na system Android 
+                        </li>
+                        <li>
+                            <b>Strona Internetowa</b> - witryna stworzona w aplikacji Mobirise z ręczną edycją plików HTML i CSS
+                            <ul>
+                                <li>
+                                    <a href="http://xenony-led.pl/" target="_blank" rel="noopener noreferrer">
+                                        http://xenony-led.pl/
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>
+                        Opis projektów oraz zastosowane technologie znajdują się w zakładce 
+                        <a href="Projects">Projekty</a>
+                    </p>
+                </div>
+                <div class="color-row margin-bot">
+                    <h2>KURSY</h2>
+                    <hr>
+                    <ul>
+                        <li>
+                            <a href="https://www.udemy.com/course/java-od-podstaw-do-eksperta-tworz-wasne-aplikacje/" target="_blank" rel="noopener noreferrer">
+                                „Java od podstaw do eksperta – twórz własne aplikacje” 
+                            </a>
+                            udemy.com
+                        </li>
+                        <li>
+                            <a href="https://strefakursow.pl/kursy/programowanie/kurs_java_sredniozaawansowany.html" target="_blank" rel="noopener noreferrer">
+                                „Kurs JAVA średniozaawansowany” 
+                            </a>
+                            strefakursow.pl
+                        </li>
+                        <li>
+                            <a href="https://strefakursow.pl/kursy/programowanie/najpopularniejsze_biblioteki_java.html" target="_blank" rel="noopener noreferrer">
+                                „Najpopularniejsze biblioteki Java” 
+                            </a>
+                            strefakursow.pl
+                        </li>
+                        <li>
+                            <a href="https://strefakursow.pl/kursy/programowanie/kurs_spring_framework_od_podstaw.html" target="_blank" rel="noopener noreferrer">
+                                „Spring framework od podstaw” 
+                            </a>
+                            strefakursow.pl
+                        </li>
+                        <li>
+                            <a href="https://strefakursow.pl/kursy/programowanie/kurs_spring_framework_dla_zaawansowanych.html" target="_blank" rel="noopener noreferrer">
+                                „Spring Framework dla zaawansowanych” 
+                            </a>
+                            strefakursow.pl
+                        </li>
+                        <li>
+                            <a href="https://strefakursow.pl/kursy/programowanie/kurs_java_hibernate_-_aplikacje_bazodanowe.html" target="_blank" rel="noopener noreferrer">
+                                „JAVA Hibernate - aplikacje bazodanowe” 
+                            </a>
+                            strefakursow.pl
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/channel/UCn_17oH3TvMOhKYEg2X-x1w" target="_blank" rel="noopener noreferrer">
+                                „Kurs Spring Boot” Mateusz Dąbrowski
+                            </a>
+                            youtube.com
+                        </li>
+                        <li>  
+                            <a href="https://www.udemy.com/course/testy-jednostkowe" target="_blank" rel="noopener noreferrer">
+                                „Testy jednostkowe - JUnit5, Mockito 2, TDD”
+                            </a>
+                            udemy.pl
+                        </li>
+                        <li>  
+                            <a href="https://strefakursow.pl/kursy/programowanie/kurs_java_-_testy_jednostkowe.html" target="_blank" rel="noopener noreferrer">
+                                „JAVA – testy jednostkowe”
+                            </a>
+                            strefakursow.pl
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="color-row margin-bot">
+                   <h2>  
+                        WYKSZTAŁCENIE
+                   </h2>
+                    <hr>
+                    <div class="row space-bottom">
+                        <div class="col-md-4">
+                            <p>09.2017 – do dziś</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p>Wyższa Szkoła Bankowa w Gdyni</p>  
+                        </div>
+                        <div class="col-md-4">
+                            Informatyka
+                            Studia niestacjonarne Inżynierskie
+                        </div>                                                     
+                        </div>
+                        <div class="row">
+                        <div class="col-md-4">
+                            09.2006 – 05.2010
+                        </div>
+                        <div class="col-md-4">
+                            Zespół Szkół Chłodniczych i Elektronicznych w Gdyni 
+                        </div>
+                        <div class="col-md-4">
+                            Technik Elektronik
+                        </div> 
+                    </div>                     
+                </div>
+                <div class="color-row margin-bot">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2>
+                                Zainteresowania
+                            </h2>
+                            <hr>
+                            <ul>
+                                <li>
+                                    programowanie
+                                </li>
+                                <li>
+                                    wycieczki rowerowe
+                                </li>
+                                <li>
+                                    wyprawy górskie
+                                </li>
+                                <li>
+                                    fantastyka
+                                </li>
+                                <li>
+                                    jednoślady
+                                </li>
+                                <li>
+                                    gry komputerowe
+                                </li>
+                                <li>
+                                    elektronika
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div id="slidehobby" class="center-slider">
+                                <div>
+                                    <img src="img/hobby/gory1.png" class="img-size">
+                                </div>
+                                <div>
+                                    <img src="img/hobby/rower.png" class="img-size">
+                                </div>
+                                <div>
+                                    <img src="img/hobby/tecza.png" class="img-size">
+                                </div>
+                                <div>
+                                    <img src="img/hobby/gory2.png" class="img-size">
+                                </div>
+                                <div>
+                                    <img src="img/hobby/moto.png" class="img-size">
+                                </div>
+                                <div>
+                                    <img src="img/hobby/mountain.png" class="img-size">
+                                </div>
+                            </div>         
+                        </div>
+                    </div>
+                </div>    
+            </div>          
+        </div>
+    </div>
+
+    <span class="scrollTopButton"></span>
+
+    <div th:include="static/footer.html">
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/simple-slide.js"></script>
+</body>
+</html>

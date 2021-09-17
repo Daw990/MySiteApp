@@ -1,155 +1,154 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
 
-    <link rel="icon" href="../img/daw_logo.png">
+  <link rel="icon" href="../img/daw_logo.png">
 
-    <title>Dawid Marszałkowski - Notatki </title>
-  </head>
-  <body>
+  <title>Dawid Marszałkowski - Notatki </title>
+</head>
+<body>
 
-    <div id="navbar-include">
+<div th:insert="static/navbar.html :: header"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="color-row margin-bot">
+        <h2>Notatki</h2>
+        <hr>
+        <b>Enkapsulacja Modyfikatory dostępu: </b>  <br>
+        <u>-domyslny(package private) - </u>widoczne są w ramach tego samego pakietu<br>
+        <u>-public –</u> dostęp wszędzie<br>
+        <u>-private- </u>ograniczenie do klasy<br>
+        <u>-protected- </u>widoczne są w ramach tego samego pakietu dodatkowo w klasach dziedziczących po tej klasie. <br>
+        <br>
+        <b>Przeciazanie metod(overloading)- </b>  tworzenie metod o takich samych nazwach ale różnych parametrach. <br>
+        <br>
+        <b>Referencje</b> - są po prostu wartością liczbową, która określa lokalizację danego obiektu w pamięci. Zmienna wskazująca na obiekt w pamięci. <br>
+        <b>Konkantenacja-</b>  dodawanie stringów<br>
+        <br>
+        String- przechowuje w sobie tablice charów jest typem immutable(private, final, bez geterow). <b>String Builder</b>  jest wydajniejszy bo można go modyfikować(mutable). <b>String Buffer</b>  używany w wielowątkowości<br>
+        <br>
+        <b>enum- </b> umożliwia w Javie zadeklarowanie ograniczonej liczby możliwych wartości<br>
+        <b>static </b> – opisany nim byt nie potrzebuje obiektów. <br>
+        <b>final</b>  – Immutable<br>
+        <b>Konstruktor- </b> tworzenie obiektu z inicjalizacją pól. <br>
+        <b>this. </b>  –jesteśmy w stanie odróżnić zmienne globalne w metodzie<br>
+        <b>Interfejs </b> – wymóg jaki muszą spełnić klasy implementujące<br>
+        <b>Metoda hashCode() </b> – zwraca nr pamięci obiektu. <br>
+        <b>Polimorfizm- </b> klasa implementująca bądź dziedzicząca może dostarczać własną implementacje metod<br>
+        <b>Klasa abstarkcyja</b> (extends w klasie)- to samo co interfejs tylko można umieścić jakąś implementację. <br>
+        <b>equals()- </b> porównanie typów obiektowych (trzeba odpowiednio nadpisać metodę) porównywanie typu String. <br>
+        <b>rekurencja- </b> używanie metody x w metodzie x. <br>
+        <b>Wyrażenie warunkowe- </b> (condition)?x:y; skrócony if. <br>
+        <br>
+        <b>Wyjątki checked i unchecked</b>  że te pierwsze muszą być obsłużone przez programistę, wymaga tego kompilator. Przykładowym wyjątkiem typu unchecked jest IllegalArgumentException, natomiast IOException jest wyjątkiem typu checked. <br>
+        Serwlet to klasa, która implementuje interfejs Servlet. Instancje tej klasy tworzone są przez kontener serwletów (np. Tomcat). Instancje te wiedzą jak odpowiadać na żądania, które dostają od klienta. <br>
+        <b>List</b> <br>
+        <u>-Arrayist –</u> implementacja tablicowa wykorzystujemy kiedy istotny jest czas dostępu do danych. <br>
+        <u>-LinkedList-</u> gdy wiemy że często będą wykonywane operacje dod. Usuwania itp. <br>
+        <b>Set</b> <br>
+        <u>-HashSet – </u>unikalność elem. Bez wpływu na kolejność<br>
+        <u>-TreeSet – </u>unikalność i kolejność zgodne z naturalnym porządkiem (Comparable lub odpowiedni Comparator) <br>
+        <u>-LinkedHashSet- </u>unikalność + kolejność zgodna z dodawaniem elem. <br>
+        <b>Map</b>  – HashMap, TreeMap, LinkedHashMap. <br>
+        <br>
+        <b>JIRA</b>  to oprogramowanie służące do śledzenia błędów i zarządzania projektami. <br>
+        <b>Spring </b> to framework upraszczający tworzenie oprogramowania, jeden z podstawowych elementów związanych z językiem Java. <br>
+        <b>TDD-</b>  (test driven dev) najpierw testy później kod<br>
+        <b>Kontrakt hashCode i equals</b>  mówi o tym, że jeżeli wartość hashCode dla 2 obiektów jest taka sama, to obiekty te mogą być
+        równoznaczne (innymi słowy equals może zwrócić true lub false). Jeśli jednak hashCode jest różny, to equals zawsze zwróci false<br>
+        <br>
+        <b>Interfejs Comparable </b> Java Framework Collections. Służy do definiowania strategii porównywania obiektów tego samego typu. Zawiera on tylko jedną metodę compareTo(). W efekcie zaimplementowania Combarable, klasa zyskuje możliwość współdziałania z wieloma generycznymi algorytmami i kolekcjami. <br>
+        <br>
+        <b>TimeZone</b> - klasa reprezentująca strefę czasową<br>
+        <b>Locale </b> - klasa reprezentująca ustawienia językowe/lokalizacyjne systemu, reprezentuje m.in. domyślny język oraz lokalizację (kraj) <br>
+        <b>finalize()</b> to metoda klasy Object, która jest wywoływana dokładnie raz, zanim obiekt zostanie usunięty z pamięci przez garbage collector<br>
+        <b>Garbage Collector</b>  to program, którego głównym zadaniem jest usuwanie z pamięci nieużywanych obiektów(young gen”eden, survivor1, survivor2”, old gen) <br>
+
+
+        <b>Typy baz danych</b> <br>
+        <u>-relacyjne, </u>zbiór tabel zawierające kolumny i wiersze. Zapewniają najbardziej efektywny i elastyczny sposób na uzyskanie dostępu do uporządkowanych informacji. <br>
+        <u>-obiektowe, </u>informacje w nich zawarte mają postać obiektów podobnie jak w programowaniu obiektowym. <br>
+        <u>-rozproszone, </u><br>
+        <u>-hurtownie danych, </u> typ bazy przeznaczony głównie do szybkiego wykonywania zapytań i analizy<br>
+        <u>-NoSQL, </u>nierelacyjna baza danych, umożliwia przechowywanie nieuporządkowanych i częściowo uporządkowanych danych oraz manipulowanie nimi<br>
+        <br>
+        <b>JDBC- </b> pozwala na komunikacje z bazą danych [appjava->Interfejs JDBC->JDBC Driver (czyli sterownik wybranej bazy danych)] <br>
+        <b>ORM</b> (np. hibernate i wiecej)  tworzenie zapytań na podstawie instancji klas<br>
+        <br>
+        <b>Spring Kontener IOC </b> (Inversion of Control). Odwrócenie sterowania polega na przekazaniu kontroli nad cyklem życia obiektów kontenerowi. nie tworzymy nowego obiektu „new Object” kontener robi to za nas niejawnie. Wystarczy użyć Dependency Injection. Przez konstruktor bądź pole. @Autowired<br>
+        <br>
+        <b>Moduły Spring</b> - Kontener IoC, szablon programowania aspektowego, dostępu do danych, obsługi transakcjim, MVC, zdfalnego dostępu, autoryzacji autentykacji, zdalnego zarządzania JMX, komunikatów JMS, obsługa testowania<br>
+        <br>
+        <b>Bean </b> – obiekt zarządzany przez springa(adnotacje w klasie). Wszystkie klasy mogą być beanem w springu nawet zwykłe Stringi czy Integery, oprócz Kolekcji i map. Można je opakować w dodatkową klasę z jednym polem np.: kolekcją. <br>
+        <br>
+        <b>@Scope(„rodzaj”)</b> pod beanem rodzaje: https://www.javappa.com/kurs-spring/zakresy-beanow<br>
+        <u>-Singleton </u>zmieniając obiekt w jednej klasie możemy tą zmianę odczytać w każdej innej klasie gdzie ten obiekt jest wstrzyknięty. Te same adresy w pamięci<br>
+        <br>
+        <u>-Prototype </u>wstrzykując takiego beana do dwóch klas sprawia ze jeden nie zmienia się podczas gdy nastąpią zmiany w drugin. Rozne adresy w pamięci<br>
+        <br>
+        <u>-Request- </u>nowa instancja obiektu będzie tworzona za każdym razem, gdy odbierzemy nowe żądanie HTTP. W ten sposób możemy niezależnie przetwarzać dane tak, aby nie "mieszać" ich między kolejnymi żądaniami. <br>
+        <br>
+        <u>-Session- </u>nowa instancja obiektu będzie tworzona za każdym razem, gdy zostanie stworzona nowa sesja, a konkretnie nowy obiekt HttpSession. Umożliwia to na przykład stworzenie dedykowanej klasy, która będzie przechowywała podstawowe informacje o zalogowanym użytkowniku. <br>
+        <br>
+        <u>-Application- </u>oznacza, że nowa instancja obiektu będzie tworzona raz i będzie istniała w ramach cyklu życia całego kontekstu serwletu (ServletContext). Zatem jeśli mamy więcej aplikacji działających w ramach tego samego ServletContext-u, to wszystkie te aplikacje będą współdzieliły jedną instancję obiektu. <br>
+        <br>
+        <u>-Websocket </u>to ostatni rodzaj zakresu, który jest udostępniony przez obecną wersję Springa (Spring 5). W tym przypadku będzie istniała jedna instancja obiektu per sesja WebSocket-u. <br>
+        <br>
+        <u>Uwagi: </u>proxy mode = ScopedProxyMode - TARGET_CLASS powiadamia kontekst springa aby utworzył instancje klasy podczas stworzenia sesji lub server otrzyma request http. w @Scope po przecinku w request, session i application. Można zapisać @RequestScope, @SessionScope i @ApplicationScope mają ustawiony odpowiedzni proxyMode
+
+      </div>
     </div>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-9">
-        <div class="color-row margin-bot">
-          <h2>Notatki</h2>
-          <hr>
-          <b>Enkapsulacja Modyfikatory dostępu: </b>  <br>
-<u>-domyslny(package private) - </u>widoczne są w ramach tego samego pakietu<br>
-<u>-public –</u> dostęp wszędzie<br>
-<u>-private- </u>ograniczenie do klasy<br>
-<u>-protected- </u>widoczne są w ramach tego samego pakietu dodatkowo w klasach dziedziczących po tej klasie. <br>
-<br>
-<b>Przeciazanie metod(overloading)- </b>  tworzenie metod o takich samych nazwach ale różnych parametrach. <br>
-<br>
-<b>Referencje</b> - są po prostu wartością liczbową, która określa lokalizację danego obiektu w pamięci. Zmienna wskazująca na obiekt w pamięci. <br>
-<b>Konkantenacja-</b>  dodawanie stringów<br>
-<br>
-String- przechowuje w sobie tablice charów jest typem immutable(private, final, bez geterow). <b>String Builder</b>  jest wydajniejszy bo można go modyfikować(mutable). <b>String Buffer</b>  używany w wielowątkowości<br>
-<br>
-<b>enum- </b> umożliwia w Javie zadeklarowanie ograniczonej liczby możliwych wartości<br>
-<b>static </b> – opisany nim byt nie potrzebuje obiektów. <br>
-<b>final</b>  – Immutable<br>
-<b>Konstruktor- </b> tworzenie obiektu z inicjalizacją pól. <br>
-<b>this. </b>  –jesteśmy w stanie odróżnić zmienne globalne w metodzie<br>
-<b>Interfejs </b> – wymóg jaki muszą spełnić klasy implementujące<br>
-<b>Metoda hashCode() </b> – zwraca nr pamięci obiektu. <br>
-<b>Polimorfizm- </b> klasa implementująca bądź dziedzicząca może dostarczać własną implementacje metod<br>
-<b>Klasa abstarkcyja</b> (extends w klasie)- to samo co interfejs tylko można umieścić jakąś implementację. <br>
-<b>equals()- </b> porównanie typów obiektowych (trzeba odpowiednio nadpisać metodę) porównywanie typu String. <br>
-<b>rekurencja- </b> używanie metody x w metodzie x. <br>
-<b>Wyrażenie warunkowe- </b> (condition)?x:y; skrócony if. <br>
-<br>
-<b>Wyjątki checked i unchecked</b>  że te pierwsze muszą być obsłużone przez programistę, wymaga tego kompilator. Przykładowym wyjątkiem typu unchecked jest IllegalArgumentException, natomiast IOException jest wyjątkiem typu checked. <br>
-Serwlet to klasa, która implementuje interfejs Servlet. Instancje tej klasy tworzone są przez kontener serwletów (np. Tomcat). Instancje te wiedzą jak odpowiadać na żądania, które dostają od klienta. <br>
-<b>List</b> <br>
-<u>-Arrayist –</u> implementacja tablicowa wykorzystujemy kiedy istotny jest czas dostępu do danych. <br>
-<u>-LinkedList-</u> gdy wiemy że często będą wykonywane operacje dod. Usuwania itp. <br>
-<b>Set</b> <br>
-<u>-HashSet – </u>unikalność elem. Bez wpływu na kolejność<br>
-<u>-TreeSet – </u>unikalność i kolejność zgodne z naturalnym porządkiem (Comparable lub odpowiedni Comparator) <br>
-<u>-LinkedHashSet- </u>unikalność + kolejność zgodna z dodawaniem elem. <br>
-<b>Map</b>  – HashMap, TreeMap, LinkedHashMap. <br>
-<br>
-<b>JIRA</b>  to oprogramowanie służące do śledzenia błędów i zarządzania projektami. <br>
-<b>Spring </b> to framework upraszczający tworzenie oprogramowania, jeden z podstawowych elementów związanych z językiem Java. <br>
-<b>TDD-</b>  (test driven dev) najpierw testy później kod<br>
-<b>Kontrakt hashCode i equals</b>  mówi o tym, że jeżeli wartość hashCode dla 2 obiektów jest taka sama, to obiekty te mogą być 
-równoznaczne (innymi słowy equals może zwrócić true lub false). Jeśli jednak hashCode jest różny, to equals zawsze zwróci false<br>
-<br>
-<b>Interfejs Comparable </b> Java Framework Collections. Służy do definiowania strategii porównywania obiektów tego samego typu. Zawiera on tylko jedną metodę compareTo(). W efekcie zaimplementowania Combarable, klasa zyskuje możliwość współdziałania z wieloma generycznymi algorytmami i kolekcjami. <br>
-<br>
-<b>TimeZone</b> - klasa reprezentująca strefę czasową<br>
-<b>Locale </b> - klasa reprezentująca ustawienia językowe/lokalizacyjne systemu, reprezentuje m.in. domyślny język oraz lokalizację (kraj) <br>
-<b>finalize()</b> to metoda klasy Object, która jest wywoływana dokładnie raz, zanim obiekt zostanie usunięty z pamięci przez garbage collector<br>
-<b>Garbage Collector</b>  to program, którego głównym zadaniem jest usuwanie z pamięci nieużywanych obiektów(young gen”eden, survivor1, survivor2”, old gen) <br>
+    <div class="col-md-3">
+      <div class="color-row margin-bot">
+        <h2>Spis treści</h2>
+        <hr>
+        <ul>
+          <li>
+            <a href="">link1</a>
+          </li>
+          <li>
+            <a href="">link1</a>
+          </li>
+          <li>
+            <a href="">link1</a>
+          </li>
+          <li>
+            <a href="">link1</a>
+          </li><li>
+          <a href="">link1</a>
+        </li>
 
-
-<b>Typy baz danych</b> <br>
-<u>-relacyjne, </u>zbiór tabel zawierające kolumny i wiersze. Zapewniają najbardziej efektywny i elastyczny sposób na uzyskanie dostępu do uporządkowanych informacji. <br>
-<u>-obiektowe, </u>informacje w nich zawarte mają postać obiektów podobnie jak w programowaniu obiektowym. <br>
-<u>-rozproszone, </u><br>
-<u>-hurtownie danych, </u> typ bazy przeznaczony głównie do szybkiego wykonywania zapytań i analizy<br>
-<u>-NoSQL, </u>nierelacyjna baza danych, umożliwia przechowywanie nieuporządkowanych i częściowo uporządkowanych danych oraz manipulowanie nimi<br>
-<br>
-<b>JDBC- </b> pozwala na komunikacje z bazą danych [appjava->Interfejs JDBC->JDBC Driver (czyli sterownik wybranej bazy danych)] <br>
-<b>ORM</b> (np. hibernate i wiecej)  tworzenie zapytań na podstawie instancji klas<br>
-<br>
-<b>Spring Kontener IOC </b> (Inversion of Control). Odwrócenie sterowania polega na przekazaniu kontroli nad cyklem życia obiektów kontenerowi. nie tworzymy nowego obiektu „new Object” kontener robi to za nas niejawnie. Wystarczy użyć Dependency Injection. Przez konstruktor bądź pole. @Autowired<br>
-<br>
-<b>Moduły Spring</b> - Kontener IoC, szablon programowania aspektowego, dostępu do danych, obsługi transakcjim, MVC, zdfalnego dostępu, autoryzacji autentykacji, zdalnego zarządzania JMX, komunikatów JMS, obsługa testowania<br>
-<br>
-<b>Bean </b> – obiekt zarządzany przez springa(adnotacje w klasie). Wszystkie klasy mogą być beanem w springu nawet zwykłe Stringi czy Integery, oprócz Kolekcji i map. Można je opakować w dodatkową klasę z jednym polem np.: kolekcją. <br>
-<br>
-<b>@Scope(„rodzaj”)</b> pod beanem rodzaje: https://www.javappa.com/kurs-spring/zakresy-beanow<br>
-<u>-Singleton </u>zmieniając obiekt w jednej klasie możemy tą zmianę odczytać w każdej innej klasie gdzie ten obiekt jest wstrzyknięty. Te same adresy w pamięci<br>
-<br>
-<u>-Prototype </u>wstrzykując takiego beana do dwóch klas sprawia ze jeden nie zmienia się podczas gdy nastąpią zmiany w drugin. Rozne adresy w pamięci<br>
-<br>
-<u>-Request- </u>nowa instancja obiektu będzie tworzona za każdym razem, gdy odbierzemy nowe żądanie HTTP. W ten sposób możemy niezależnie przetwarzać dane tak, aby nie "mieszać" ich między kolejnymi żądaniami. <br>
-<br>
-<u>-Session- </u>nowa instancja obiektu będzie tworzona za każdym razem, gdy zostanie stworzona nowa sesja, a konkretnie nowy obiekt HttpSession. Umożliwia to na przykład stworzenie dedykowanej klasy, która będzie przechowywała podstawowe informacje o zalogowanym użytkowniku. <br>
-<br>
-<u>-Application- </u>oznacza, że nowa instancja obiektu będzie tworzona raz i będzie istniała w ramach cyklu życia całego kontekstu serwletu (ServletContext). Zatem jeśli mamy więcej aplikacji działających w ramach tego samego ServletContext-u, to wszystkie te aplikacje będą współdzieliły jedną instancję obiektu. <br>
-<br>
-<u>-Websocket </u>to ostatni rodzaj zakresu, który jest udostępniony przez obecną wersję Springa (Spring 5). W tym przypadku będzie istniała jedna instancja obiektu per sesja WebSocket-u. <br>
-<br>
-<u>Uwagi: </u>proxy mode = ScopedProxyMode - TARGET_CLASS powiadamia kontekst springa aby utworzył instancje klasy podczas stworzenia sesji lub server otrzyma request http. w @Scope po przecinku w request, session i application. Można zapisać @RequestScope, @SessionScope i @ApplicationScope mają ustawiony odpowiedzni proxyMode
-
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="color-row margin-bot">
-          <h2>Spis treści</h2>
-          <hr>
-          <ul>
-            <li>
-              <a href="">link1</a>
-            </li>
-            <li>
-              <a href="">link1</a>
-            </li>
-            <li>
-              <a href="">link1</a>
-            </li>
-            <li>
-              <a href="">link1</a>
-            </li><li>
-              <a href="">link1</a>
-            </li>
-
-          </ul>
-        </div>
+        </ul>
       </div>
     </div>
   </div>
+</div>
 
-  <span class="scrollTopButton"></span>
+<span class="scrollTopButton"></span>
 
-  <div id="footer-include">
-  </div>
+<div th:include="static/footer.html">
+</div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-    src="https://code.jquery.com/jquery-3.6.0.js"
-    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-    crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="../js/load-content.js" type="text/javascript"></script>
-    <script src="../js/simple-slide.js" type="text/javascript"></script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="../js/load-content.js" type="text/javascript"></script>
+<script src="../js/simple-slide.js" type="text/javascript"></script>
 </body>
 </html>
