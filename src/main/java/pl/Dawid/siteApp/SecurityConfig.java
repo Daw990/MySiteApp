@@ -28,10 +28,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/css/**", "/img/**", "/js/**").permitAll()
-                .antMatchers("/", "/contact","/projects").permitAll()
+                .antMatchers("/", "/contact","/projects","/test/cytat").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("login").permitAll()
+                .formLogin().loginPage("/login")
+                .permitAll()
+                .and()
+                .logout()
+                .logoutSuccessUrl("/?logout")
                 .and()
                 .csrf().disable();
     }

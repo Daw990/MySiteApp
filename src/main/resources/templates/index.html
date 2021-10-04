@@ -30,8 +30,11 @@
             <div class="col-md-8">
                 <div class="color-row-cytat margin-bot">
                     <hr>
-                    <div th:text="${cytat.getCytat()}" class="cytat-design"></div>
-                    <div th:text="${cytat.getAutor()}" class="cytat-author-design"></div>
+                    <div id="cytatyData">
+                        <div th:text="${cytat.getCytat()}" class="cytat-design"></div>
+                        <div th:text="${cytat.getAutor()}" class="cytat-author-design"></div>
+                    </div>
+                    <div id="auto-refresh-cytat"></div>
                     <hr>
                     <div><?php echo date(H:i:s'); ?></div>
                 </div>
@@ -296,10 +299,7 @@
     </div>
 
     <span class="scrollTopButton"></span>
-
-    <div th:include="staticContent/footer.html">
-    </div>
-
+  <div th:include="staticContent/footer.html"></div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
@@ -309,6 +309,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="js/simple-slide.js"></script>
+
+  <script>
+      $(document).ready(function () {
+         setInterval(function (){showCytat(); }, 4000)
+      });
+      function showCytat() {
+          $("#cytatyData").remove();
+          url = "test/cytat";
+
+          $.getJSON(url, function(cytatJSON)
+          {
+              htmlForCytat = '<div id="cytatyData">' +
+                  '<div class="cytat-design">'+cytatJSON.cytat+'</div>' +
+                  '<div class="cytat-author-design">'+cytatJSON.autor+'</div>' +
+                  '</div>';
+          }).done(function() {
+                $("#auto-refresh-cytat").append(htmlForCytat);
+          });
+      }
+  </script>
   <script>
       $(document).ready(function(){
           $("#div_refresh").load(".php");

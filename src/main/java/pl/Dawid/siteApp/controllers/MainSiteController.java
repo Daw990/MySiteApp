@@ -21,6 +21,11 @@ public class MainSiteController {
         return "index";
     }
 
+    @GetMapping(value = "/login")
+    public String login() {
+        return "mainWeb/login";
+    }
+
     @GetMapping(value = "/contact")
     public String contact() {
         return "mainWeb/contact";
@@ -39,5 +44,10 @@ public class MainSiteController {
     @GetMapping(value = "note/note")
     public String note() {
         return "note/note";
+    }
+
+    @GetMapping(value = "/note/savings-counter")
+    public String savingMeter() {
+        return "note/savings-counter";
     }
 }

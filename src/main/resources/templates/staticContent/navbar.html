@@ -25,8 +25,10 @@
                      <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Notatki<span class="caret"></span></a>
                      <ul class="dropdown-menu" role="menu">
                          <li><a href="/note/note" class="nav-link">notatki</a></li>
-                         <hr>
                          <li><a href="/note/ut2004" class="nav-link">UT2004</a></li>
+                         <li><a href="/note/savings-counter" class="nav-link">Licznik oszczędności</a></li>
+                         <hr>
+                         <li><a th:if="authenticated" href="/logout" class="nav-link">Logout</a></li>
                      </ul>
                  </li>
              </ul>
