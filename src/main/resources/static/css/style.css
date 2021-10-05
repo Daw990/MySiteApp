@@ -69,7 +69,15 @@ a:hover{
 
 .color-row-cytat {
     background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 170px;
     padding: 10px 50px;
+}
+
+#cytatyData {
+    text-align: center;
 }
 
 .cytat-design {

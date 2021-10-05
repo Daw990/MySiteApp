@@ -29,14 +29,11 @@
             </div>
             <div class="col-md-8">
                 <div class="color-row-cytat margin-bot">
-                    <hr>
-                    <div id="cytatyData">
-                        <div th:text="${cytat.getCytat()}" class="cytat-design"></div>
-                        <div th:text="${cytat.getAutor()}" class="cytat-author-design"></div>
-                    </div>
-                    <div id="auto-refresh-cytat"></div>
-                    <hr>
-                    <div><?php echo date(H:i:s'); ?></div>
+                        <div id="cytatyData">
+                            <div th:text="${cytat.getCytat()}" class="cytat-design"></div>
+                            <div th:text="${cytat.getAutor()}" class="cytat-author-design"></div>
+                        </div>
+                        <div id="auto-refresh-cytat"></div>
                 </div>
                 <div class="color-row margin-bot">
                     <h2>UMIEJĘTNOŚCI TECHNICZNE</h2>
@@ -312,11 +309,11 @@
 
   <script>
       $(document).ready(function () {
-         setInterval(function (){showCytat(); }, 4000)
+         setInterval(function (){showCytat(); }, 3000)
       });
       function showCytat() {
           $("#cytatyData").remove();
-          url = "test/cytat";
+          url = "api/cytat";
 
           $.getJSON(url, function(cytatJSON)
           {

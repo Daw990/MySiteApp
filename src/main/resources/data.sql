@@ -17,4 +17,37 @@ insert into cytaty (autor, cytat) values ('~Albert Schweitzer',      '„Szczę�
 
 
 
+insert into expenses (category, name) values ('Rachunki',           'Czynsz');
+insert into expenses (category, name) values ('Rachunki',           'Prąd');
+insert into expenses (category, name) values ('Rachunki',           'Gaz');
+insert into expenses (category, name) values ('Rachunki',           'Woda i ścieki');
+insert into expenses (category, name) values ('Rachunki',           'Ogrzewanie');
+insert into expenses (category, name) values ('Rachunki',           'Wywóz śmieci');
+insert into expenses (category, name) values ('Rachunki',           'Telefon');
+insert into expenses (category, name) values ('Rachunki',           'Telewizja');
+insert into expenses (category, name) values ('Rachunki',           'Internet');
+insert into expenses (category, name) values ('Rachunki',           'Inne');
+insert into expenses (category, name) values ('Produkty finansowe', 'Kredyt mieszkaniowy');
+insert into expenses (category, name) values ('Produkty finansowe', 'Kredyt inny');
+insert into expenses (category, name) values ('Produkty finansowe', 'Pożyczka');
+insert into expenses (category, name) values ('Produkty finansowe', 'Inne');
+insert into expenses (category, name) values ('Wydatki domowe',     'Żywność');
+insert into expenses (category, name) values ('Wydatki domowe',     'Chemia');
+insert into expenses (category, name) values ('Wydatki domowe',     'Ubrania');
+insert into expenses (category, name) values ('Wydatki domowe',     'Paliwo');
+insert into expenses (category, name) values ('Wydatki domowe',     'Bilety');
+insert into expenses (category, name) values ('Wydatki domowe',     'Lekarstwa');
+insert into expenses (category, name) values ('Wydatki domowe',     'Wizyty lekarskie');
+insert into expenses (category, name) values ('Wydatki domowe',     'Rozrywka i hobby');
+insert into expenses (category, name) values ('Wydatki domowe',     'Inne');
+insert into expenses (category, name) values ('Edukacja',           'Czesne');
+insert into expenses (category, name) values ('Edukacja',           'Kursy');
+insert into expenses (category, name) values ('Edukacja',           'Szkoła i przedszkole');
+insert into expenses (category, name) values ('Edukacja',           'Inne');
+insert into expenses (category, name) values ('Inne',               'Samochód - mechanik');
+insert into expenses (category, name) values ('Inne',               'Ubezpieczenie Samochodu');
+insert into expenses (category, name) values ('Inne',               'Ubezpieczenie domu');
+insert into expenses (category, name) values ('Inne',               'Ubezpieczenie na życie');
+
+
 

@@ -4,24 +4,32 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.Dawid.siteApp.entity.Cytaty;
-import pl.Dawid.siteApp.service.CytatyRepoService;
+import pl.Dawid.siteApp.entity.Expenses;
+import pl.Dawid.siteApp.service.CytatyService;
+import pl.Dawid.siteApp.service.ExpensesService;
 
 import java.util.List;
 
-@RestController
+@RestController("/api")
 @RequiredArgsConstructor
 public class RestControllerApi {
 
-    private final CytatyRepoService cytatyRepoService;
+    private final CytatyService cytatyService;
+    private final ExpensesService expensesService;
 
-    @GetMapping("/test/cytaty")
+    @GetMapping("/cytaty")
     public List<Cytaty> getCytaty() {
-        return cytatyRepoService.cytatyFindAll();
+        return cytatyService.cytatyFindAll();
     }
 
-    @GetMapping("/test/cytat")
+    @GetMapping("/cytat")
     public Cytaty getCytat() {
-        return cytatyRepoService.findOneRandomCytat();
+        return cytatyService.findOneRandomCytat();
+    }
+
+    @GetMapping("/expenses")
+    public List<Expenses> getExpenses() {
+        return expensesService.findExpensesByCategory("Rachunki");
     }
 
 }

@@ -10,7 +10,7 @@ import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
-public class CytatyRepoService {
+public class CytatyService {
 
     private final CytatyRepo cytatyRepo;
 
