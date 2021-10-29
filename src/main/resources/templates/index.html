@@ -33,7 +33,7 @@
                             <div th:text="${cytat.getCytat()}" class="cytat-design"></div>
                             <div th:text="${cytat.getAutor()}" class="cytat-author-design"></div>
                         </div>
-                        <div id="auto-refresh-cytat"></div>
+                    <div id="auto-refresh-cytat"></div>
                 </div>
                 <div class="color-row margin-bot">
                     <h2>UMIEJĘTNOŚCI TECHNICZNE</h2>
@@ -41,67 +41,37 @@
                     <div class="row">
                         <div class="col-md-4">
                             <ul>
-                                <li>
-                                    Java 8, 11
-                                </li>
-                                <li>
-                                    Spring Boot
-                                </li>
-                                <li>
-                                    Spring Security
-                                </li>
-                                <li>
-                                    Jpa, Hibernate
-                                </li>
-                                <li>
-                                    Thymeleaf
-                                </li>
-                                <li>
-                                    JUnit, Mockito
-                                </li>
-                                <li>
-                                    JS, HTML, CSS
-                                </li>
+                                <li>Java 8, 11</li>
+                                <li>Spring Boot</li>
+                                <li>Spring Security</li>
+                                <li>Jpa, Hibernate</li>
+                                <li>Thymeleaf</li>
+                                <li>JUnit, Mockito</li>
+                                <li>JS, HTML, CSS</li>
                             </ul>
                         </div>
                         <div class="col-md-4">
                             Bazy danych
                             <ul>
-                                <li>
-                                    H2
-                                </li>
-                                <li>
-                                    MySql
-                                </li>
+                                <li>H2</li>
+                                <li>MySql</li>
                             </ul>
                             Programowanie
                             <ul>
-                                <li>
-                                    Obiektowe
-                                </li>
-                                <li>
-                                    Aspektowe
-                                </li>
+                                <li>Obiektowe</li>
+                                <li>Aspektowe</li>
                             </ul>
                         </div>
                         <div class="col-md-4">
                             System kontroli wersji
                             <ul>
-                                <li>
-                                    Git
-                                </li>
-                                <li>
-                                    SVN
-                                </li>
+                                <li>Git</li>
+                                <li>SVN</li>
                             </ul>
                             Języki
                             <ul>
-                                <li>
-                                    Angielski B1
-                                </li>
-                                <li>
-                                    Niemiecki A1
-                                </li>
+                                <li>Angielski B1</li>
+                                <li>Niemiecki A1</li>
                             </ul>
                         </div>
                     </div>
@@ -143,7 +113,7 @@
                     </ul>
                     <p>
                         Opis projektów oraz zastosowane technologie znajdują się w zakładce 
-                        <a href="Projects">Projekty</a>
+                        <a href="projects">Projekty</a>
                     </p>
                 </div>
                 <div class="color-row margin-bot">
@@ -244,27 +214,13 @@
                             </h2>
                             <hr>
                             <ul>
-                                <li>
-                                    programowanie
-                                </li>
-                                <li>
-                                    wycieczki rowerowe
-                                </li>
-                                <li>
-                                    wyprawy górskie
-                                </li>
-                                <li>
-                                    fantastyka
-                                </li>
-                                <li>
-                                    jednoślady
-                                </li>
-                                <li>
-                                    gry komputerowe
-                                </li>
-                                <li>
-                                    elektronika
-                                </li>
+                                <li>programowanie</li>
+                                <li>wycieczki rowerowe</li>
+                                <li>wyprawy górskie</li>
+                                <li>fantastyka</li>
+                                <li>jednoślady</li>
+                                <li>gry komputerowe</li>
+                                <li>elektronika</li>
                             </ul>
                         </div>
                         <div class="col-md-6">
@@ -309,10 +265,10 @@
 
   <script>
       $(document).ready(function () {
-         setInterval(function (){showCytat(); }, 3000)
+         setInterval(function (){showCytat(); }, 8000)
       });
       function showCytat() {
-          $("#cytatyData").remove();
+          $("#cytatyData").remove().delay(500);
           url = "api/cytat";
 
           $.getJSON(url, function(cytatJSON)

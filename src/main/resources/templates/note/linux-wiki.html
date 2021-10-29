@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/social.css">
+
+    <link rel="icon" href="../img/daw_logo.png">
+
+    <title>Dawid Marszałkowski - Notatki </title>
+</head>
+<body>
+
+<div th:insert="staticContent/navbar.html :: header"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="color-row margin-bot sticky-top">
+                <h2>Spis treści</h2>
+                <hr>
+                <ul>
+                    <li class="ml-minus">
+                        <a href="/note/linux-wiki#cd">Polecenia Podstawowe</a>
+                    </li>
+                    <li class="ml-minus">
+                        <a href="/note/linux-wiki#ls">ls - pokaż pliki/foldery</a>
+                    </li>
+                    <li class="ml-minus">
+                        <a href="/note/linux-wiki#chmod">chmod - uprawnienia</a>
+                    </li>
+                    <li class="ml-minus">
+                        <a href="#link">linki symboliczne, twarde</a>
+                    </li>
+                    <li class="ml-minus">
+                        <a href="#cp">kopiowanie zwykłe/ssh</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="color-row margin-bot center-slider">
+                <div>
+                    <img src="/img/linux/pingwiny2.jpg" class="auto-scale-img" style="width: 60%;">
+                </div>
+            </div>
+            <div class="color-row margin-bot" id="cd">
+                <table class="table table-sm table-striped table-bordered">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th><b>Polecenie</b></th>
+                        <th><b>Parametry</b></th>
+                        <th><b>Opis</b></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>pwd</td>
+                            <td></td>
+                            <td>pokaż aktualną ścieżkę</td>
+                        </tr>
+                        <tr>
+                            <td>man</td>
+                            <td>{polecenie}</td>
+                            <td>opisz polecenie</td>
+                        </tr>
+                        <tr>
+                            <td>cd</td>
+                            <td>..</td>
+                            <td>cofa do folderu niżej</td>
+                        </tr>
+                        <tr>
+                            <td>cd</td>
+                            <td>{ścieżka_do_folderu}, {nazwa_folderu}</td>
+                            <td>wejdź do folderu</td>
+                        </tr>
+                        <tr>
+                            <td>mkdir</td>
+                            <td>{nazwa_folderu}</td>
+                            <td>stwórz nowy folder</td>
+                        </tr>
+                        <tr>
+                            <td>touch</td>
+                            <td>{nazwa_pliku}</td>
+                            <td>stwórz nowy plik</td>
+                        </tr>
+                        <tr>
+                            <td>rm</td>
+                            <td>*,  * -i,  * -f</td>
+                            <td>usuwa wszystkie pliki z katalogu, usuwa pliki z potwierdzeniem, usuwa pliki i wyłącza potwierdzenie (nawet zabezpieczone przed usunięciem)</td>
+                        </tr>
+                        <tr>
+                            <td>rm</td>
+                            <td>-f,  -r,  -rf + {nazwa_pliku/folderu}</td>
+                            <td>usuwa pliki zabezpieczone przed kopiowaniem, usuwa pliki w podkatalogach, usuwa wszystkie pliki i foldery</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="color-row margin-bot" id="ls">
+                <table class="table table-sm table-striped table-bordered">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th><b>Polecenie</b></th>
+                        <th><b>Parametry</b></th>
+                        <th><b>Opis</b></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ls</td>
+                            <td>-,  {ścieźka}</td>
+                            <td>wyświetl pliki i foldery w danej lokalizacji</td>
+                        </tr>
+                        <tr>
+                            <td>ls</td>
+                            <td>-l,  -a,  -la, (skrót: ll = ls -l)</td>
+                            <td>wyświetl więcej informacji o plikach, pokaż ukryte pliki</td>
+                        </tr>
+                        <tr>
+                            <td>ls</td>
+                            <td>-li</td>
+                            <td>działa tak samo jak ll dodatkowo na poczatku wypisuje <b>iwęzeł</b></td>
+                        </tr>
+                        <tr>
+                            <td id="chmod">chmod</td>
+                            <td>{3_liczby} + nazwa_pliku/folderu</td>
+                            <td>nadaj uprawnieia plikom i folderom - informacja poniżej (2,3,4)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <img src="/img/linux/linuxll.png" class="auto-scale-img">
+                </div>
+                <table class="table table-sm table-striped table-bordered">
+                    <td class="table-warning" colspan="2"><b>1.</b> Rodzaj</td>
+                    <tr>
+                        <td>d</td>
+                        <td>folder</td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>plik</td>
+                    </tr>
+                    <tr>
+                        <td>l</td>
+                        <td>link/skrót</td>
+                    </tr>
+                    <td class="table-warning" colspan="2"><b>2. 3. 4.</b> te sektory mówią nam o prawach do pliku</td>
+                    <tr></tr>
+                    <td colspan="2"><img src="/img/linux/nadawaniePrawLinux.jpg" class="auto-scale-img"></td>
+                    <tr></tr>
+                    <td class="table-warning" colspan="2"><b>5.</b> ilość twardych linków</td>
+                    <tr></tr>
+                    <td class="table-warning" colspan="2"><b>6.</b> właściciel pliku/folderu/linku</td>
+                    <tr></tr>
+                    <td class="table-warning" colspan="2"><b>7.</b> grupa do której przypisany jest plik/folder/link</td>
+                    <tr></tr>
+                    <td class="table-warning" colspan="2"><b>8.</b> zajęte miejsce</td>
+                    <tr></tr>
+                    <td class="table-warning" colspan="2"><b>9. 10. 11.</b> miesiąc, dzień, godzina utworzenia pliku/folderu</td>
+                    <tr></tr>
+                    <td class="table-warning" colspan="2"><b>12.</b> nazwa pliku/folderu/linku</td>
+                </table>
+            </div>
+            <div class="color-row margin-bot" id="link">
+                <h2>Dowiązania (linki) rodzaje: symboliczne, twarde</h2>
+                <hr>
+                <div>
+                    <b>Dowiązanie symboliczne - </b> działa na zasadzie skrótu w systemie Windows kiedy usuniemy plik źródłowy dowiązanie symboliczne przestanie działać.
+                </div>
+                <div class="margin-bot">
+                    <b>Dowiązanie twarde - </b>każde dowiązanie twarde posiada ten sam iwęzeł <a href="#ls">jak wyświetlić iwęzeł</a>
+                    usunięcie pliku nie sprawi że dowiązanie przestanie działać. Dowiązanie będzie działać tak długo doputy dopóki będzie istniał w systemie ten sam węzeł.
+                    Dowiązania twarde można tworzyć w obrębie jednego systemu plików i w obrębie jednej partycji dysku twardego.
+                </div>
+                <table class="table table-sm table-striped table-bordered">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th><b>Polecenie</b></th>
+                        <th><b>Parametry</b></th>
+                        <th><b>Opis</b></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ln</td>
+                            <td>{plik/folder} {nazwa_linku}</td>
+                            <td>tworzy link twardy</td>
+                        </tr>
+                        <tr>
+                            <td>ln</td>
+                            <td>-s {plik/folder} {nazwa_linku}</td>
+                            <td>tworzy link symboliczny</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="color-row margin-bot" id="cp">
+
+            </div>
+            <div class="color-row margin-bot">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<span class="scrollTopButton"></span>
+
+<div th:include="staticContent/footer.html">
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="../js/simple-slide.js" type="text/javascript"></script>
+</body>
+</html>

@@ -155,7 +155,7 @@ a:hover{
      visibility: hidden;
      overflow: hidden;
      z-index: 99999999;
-     background-image: url(/img/arrow.png);
+     background-image: url(../img/arrow.png);
      right: 30px;
      bottom: 30px;
      transition: all 0.5s ease-in-out;
@@ -165,6 +165,15 @@ a:hover{
      visibility: visible;
      cursor: pointer;
      transition: all 0.5s ease-in-out;
+}
+
+.auto-scale-img {
+    width: 100%;
+    height: auto;
+}
+
+.ml-minus {
+    margin-left: -35px;
 }
 
 

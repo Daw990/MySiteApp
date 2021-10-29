@@ -51,6 +51,11 @@ public class MainSiteController {
         return "note/note";
     }
 
+    @GetMapping(value = "/note/linux-wiki")
+    public String linuxWiki() {
+        return "note/linux-wiki";
+    }
+
     @GetMapping(value = "/note/savings-counter")
     public String savingMeter(Model model) {
         List<Expenses> expensesRachunki = expensesService.findExpensesByCategory("Rachunki");

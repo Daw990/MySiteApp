@@ -1,9 +1,11 @@
-<header>
+<header xmlns:sec="http://www.w3.org/1999/xhtml">
     <nav class="navbar navbar-expand-md navbar-light justify-content-center">
          <a class="navbar-brand" href="/">
              <img src="../img/daw_logo.png" style="width:40px;">
              awid Marszałkowski
+             <p style="margin-left: 120px; margin-top: -13px; font-size: x-small;">Application Developer</p>
          </a>
+
      
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,9 +28,11 @@
                      <ul class="dropdown-menu" role="menu">
                          <li><a href="/note/note" class="nav-link">notatki</a></li>
                          <li><a href="/note/ut2004" class="nav-link">UT2004</a></li>
-                         <li><a href="/note/savings-counter" class="nav-link">Licznik oszczędności</a></li>
+                         <!--<li><a href="/note/savings-counter" class="nav-link">Licznik oszczędności</a></li>-->
+                         <li><a href="/note/linux-wiki" class="nav-link">Linux wiki</a></li>
                          <hr>
-                         <li><a th:if="authenticated" href="/logout" class="nav-link">Logout</a></li>
+                         <li><a sec:authorize="isAuthenticated()" href="/logout" class="nav-link">Logout</a></li>
+                         <li><a sec:authorize="!isAuthenticated()" href="/login" class="nav-link">Login</a></li>
                      </ul>
                  </li>
              </ul>

@@ -2,6 +2,7 @@ package pl.Dawid.siteApp.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.Dawid.siteApp.entity.Cytaty;
 import pl.Dawid.siteApp.entity.Expenses;
@@ -10,8 +11,9 @@ import pl.Dawid.siteApp.service.ExpensesService;
 
 import java.util.List;
 
-@RestController("/api")
+@RestController
 @RequiredArgsConstructor
+@RequestMapping("/api")
 public class RestControllerApi {
 
     private final CytatyService cytatyService;
