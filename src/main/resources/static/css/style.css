@@ -9,7 +9,6 @@ body, html {
 nav {
     margin-left: 5%;
     margin-right: 5%;
-    margin-bottom: 30px;
 }
 
 footer {
@@ -43,6 +42,11 @@ a:active {
 
 a:hover{
     color: #F39117;
+}
+
+.row-margin {
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .container {
@@ -176,6 +180,28 @@ a:hover{
     margin-left: -35px;
 }
 
+.success-info{
+    text-align: center;
+    border-style: solid;
+    border-color: green;
+    background-color: #b3ffb3;
+    opacity: 0.6;
+    color: black;
+}
+
+.invalid-login{
+    text-align: center;
+    border-style: solid;
+    border-color: red;
+    background-color: #f57d7d;
+    opacity: 0.6;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.input-form {
+
+}
 
 
 

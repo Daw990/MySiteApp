@@ -70,4 +70,9 @@ public class MainSiteController {
         model.addAttribute("inne", expensesOther);
         return "note/savings-counter";
     }
+
+    @GetMapping(value = "/note/api")
+    public String api() {
+        return "note/api";
+    }
 }

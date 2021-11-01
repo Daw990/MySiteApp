@@ -19,8 +19,12 @@
 
   <div th:insert="staticContent/navbar.html :: header"></div>
 
+  <div class="success-info" th:if="${param.logout}">
+      <div>Poprawnie wylogowano</div>
+  </div>
+
     <div class="container">
-        <div class="row">
+        <div class="row row-margin">
             <div class="col-md-4">
                 <div th:insert="staticContent/about-me.html">
                 </div>
@@ -269,7 +273,7 @@
       });
       function showCytat() {
           $("#cytatyData").remove().delay(500);
-          url = "api/cytat";
+          url = "api/random-cytat";
 
           $.getJSON(url, function(cytatJSON)
           {
@@ -281,14 +285,6 @@
                 $("#auto-refresh-cytat").append(htmlForCytat);
           });
       }
-  </script>
-  <script>
-      $(document).ready(function(){
-          $("#div_refresh").load(".php");
-          setInterval(function() {
-              $("#div_refresh").load("load.php");
-          }, 1000);
-      });
   </script>
 </body>
 </html>

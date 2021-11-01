@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="css/social.css">
+    <link rel="stylesheet" href="../css/social.css">
 
     <link rel="icon" href="../img/daw_logo.png">
 
@@ -20,7 +20,7 @@
 <div th:insert="staticContent/navbar.html :: header"></div>
 
 <div class="container">
-    <div class="row">
+    <div class="row row-margin">
         <div class="col-md-3">
             <div class="color-row margin-bot sticky-top">
                 <h2>Spis treści</h2>
@@ -77,7 +77,7 @@
                         </tr>
                         <tr>
                             <td>cd</td>
-                            <td>{ścieżka_do_folderu}, {nazwa_folderu}</td>
+                            <td>{ścieżka do folderu/pliku}, {nazwa folderu}</td>
                             <td>wejdź do folderu</td>
                         </tr>
                         <tr>
@@ -87,7 +87,7 @@
                         </tr>
                         <tr>
                             <td>touch</td>
-                            <td>{nazwa_pliku}</td>
+                            <td>{nazwa pliku}</td>
                             <td>stwórz nowy plik</td>
                         </tr>
                         <tr>
@@ -97,7 +97,7 @@
                         </tr>
                         <tr>
                             <td>rm</td>
-                            <td>-f,  -r,  -rf + {nazwa_pliku/folderu}</td>
+                            <td>-f,  -r,  -rf + {nazwa pliku/folderu}</td>
                             <td>usuwa pliki zabezpieczone przed kopiowaniem, usuwa pliki w podkatalogach, usuwa wszystkie pliki i foldery</td>
                         </tr>
                     </tbody>
@@ -115,7 +115,7 @@
                     <tbody>
                         <tr>
                             <td>ls</td>
-                            <td>-,  {ścieźka}</td>
+                            <td>{brak},  {ścieźka}</td>
                             <td>wyświetl pliki i foldery w danej lokalizacji</td>
                         </tr>
                         <tr>
@@ -130,7 +130,7 @@
                         </tr>
                         <tr>
                             <td id="chmod">chmod</td>
-                            <td>{3_liczby} + nazwa_pliku/folderu</td>
+                            <td>{3liczby} + {nazwa pliku/folderu}</td>
                             <td>nadaj uprawnieia plikom i folderom - informacja poniżej (2,3,4)</td>
                         </tr>
                     </tbody>

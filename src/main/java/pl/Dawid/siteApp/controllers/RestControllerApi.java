@@ -24,14 +24,33 @@ public class RestControllerApi {
         return cytatyService.cytatyFindAll();
     }
 
-    @GetMapping("/cytat")
+    @GetMapping("/random-cytat")
     public Cytaty getCytat() {
         return cytatyService.findOneRandomCytat();
     }
 
-    @GetMapping("/expenses")
-    public List<Expenses> getExpenses() {
+    @GetMapping("/expenses/rachunki")
+    public List<Expenses> getExpensesRachunki() {
         return expensesService.findExpensesByCategory("Rachunki");
     }
 
+    @GetMapping("/expenses/produkty-finansowe")
+    public List<Expenses> getExpensesProduktyFinansowe() {
+        return expensesService.findExpensesByCategory("Produkty finansowe");
+    }
+
+    @GetMapping("/expenses/wydatki-domowe")
+    public List<Expenses> getExpensesWydatkiDomowe() {
+        return expensesService.findExpensesByCategory("Wydatki domowe");
+    }
+
+    @GetMapping("/expenses/edukacja")
+    public List<Expenses> getExpensesEdukacja() {
+        return expensesService.findExpensesByCategory("Edukacja");
+    }
+
+    @GetMapping("/expenses/inne")
+    public List<Expenses> getExpensesInne() {
+        return expensesService.findExpensesByCategory("Inne");
+    }
 }

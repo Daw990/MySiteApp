@@ -16,29 +16,66 @@
     <title>Dawid Marszałkowski - Licznik oszczędności</title>
 </head>
 <body>
-
 <div th:insert="staticContent/navbar.html :: header"></div>
+
 <div class="container">
-    <div class="row color-row">
-        <div class="col-md-4">
-            <h3>Podaj Hasło</h3>
+    <div class="row">
+    <div class="col-md-9">
+    <div class="color-row row-margin">
+        <div class="row">
+            <div class="col-md-6 center-slider">
+                <h3>Pensja netto</h3>
+                <input type="number" class="input-form" placeholder="zł">
+            </div>
+            <div class="col-md-6 center-slider">
+                <h3>Inne dochody</h3>
+                <input type="number" class="input-form" placeholder="zł">
+            </div>
         </div>
-        <div class="col-md-4">
-            <h3>Podaj Hasło</h3>
-        </div>
-        <div class="col-md-4">
-            <h3>Podaj Hasło</h3>
+        <div id="rachunki">
+            <h3>Rachunki</h3>
+            <hr>
+            <button class="btn btn-info" onclick="cloneInputRachunek()" style="margin-bottom: 5px;">Dodaj koszta</button>
+
+            <div style="display: none;">
+                <div id="rachunek" style="margin-bottom: 5px;">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>
+                                <select class="" required="required">
+                                    <option th:each="rachunek: ${rachunki}" th:value="${rachunek.getName()}" th:text="${rachunek.getName()}">
+                                    </option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="col-md-4 input-get">
+                            <input type="number" placeholder="podaj kwotę" value="" class="input-rachunek">
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-danger" id="delete" onclick="deleteItem(this)">Usuń</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="add-input"></div>
         </div>
     </div>
-
-
-        <h3>Podaj Hasło</h3>
-
-
+    </div>
+        <div class="col-md-3">
+            <div class="color-row row-margin">
+                <h2>Przychód razem:</h2>
+                <hr>
+                <h2>Rachunki:</h2>
+                <hr>
+                <input type="text"  value="" id="suma"/>
+            </div>
+        </div>
+    </div>
 </div>
+
+
 <div th:include="staticContent/footer.html"></div>
 <span class="scrollTopButton"></span>
-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script
@@ -48,5 +85,33 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="js/simple-slide.js"></script>
+<script>
+
+    var i = 0;
+    var rachunek = $("#rachunek").removeAttr('id');
+    var sumRachunki = 0;
+
+    function cloneInputRachunek() {
+        rachunek.removeAttr('class')
+        rachunek.addClass("r");
+        i++;
+        $('.add-input').append(rachunek.clone());
+    }
+
+    function deleteItem(e) {
+        e.parentNode.parentNode.parentNode.parentNode.removeChild(e.parentNode.parentNode.parentNode);
+        var numberToMinus = e.parentNode.parentNode.querySelector(".input-get input[value]")
+        sumRachunki -= numberToMinus;
+        i--;
+    }
+
+    $(document).on('input','.r', function() {
+        $(".input-rachunek").each(function(){
+            sumRachunki += +$(this).val();
+        });
+        $("#suma").val(sumRachunki);
+    });
+
+</script>
 </body>
 </html>
