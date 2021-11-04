@@ -9,8 +9,8 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>pl.Dawid</groupId>
-	<artifactId>siteApp</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>webApp</artifactId>
+	<version>1</version>
 	<name>siteApp</name>
 	<description>Moja Strona</description>
 	<properties>

@@ -36,25 +36,36 @@
                         <a href="/note/linux-wiki#chmod">chmod - uprawnienia</a>
                     </li>
                     <li class="ml-minus">
-                        <a href="#link">linki symboliczne, twarde</a>
+                        <a href="#link">Linki symboliczne, twarde</a>
                     </li>
                     <li class="ml-minus">
-                        <a href="#cp">kopiowanie zwykłe/ssh</a>
+                        <a href="#cp">Kopiowanie zwykłe/ssh</a>
+                    </li>
+                    <li class="ml-minus">
+                        <a href="#zip">Kompresja, dekompresja *.tar *.zip *.gz</a>
+                    </li>
+                    <li class="ml-minus">
+                        <a href="#ps">Procesy</a>
+                    </li>
+                    <li class="ml-minus">
+                        <a href="#nano">Edycja pliku</a>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="col-md-9">
-            <div class="color-row margin-bot center-slider">
+            <div class="color-row-linux margin-bot center-slider-linux">
                 <div>
-                    <img src="/img/linux/pingwiny2.jpg" class="auto-scale-img" style="width: 60%;">
+                    <img src="/img/linux/pingwiny2.jpg" class="auto-scale-img" style="width: 80%;">
                 </div>
             </div>
             <div class="color-row margin-bot" id="cd">
+                <h2>Polecenia podstawowe</h2>
+                <hr>
                 <table class="table table-sm table-striped table-bordered">
                     <thead class="thead-dark">
                     <tr>
-                        <th><b>Polecenie</b></th>
+                        <th><b>#</b></th>
                         <th><b>Parametry</b></th>
                         <th><b>Opis</b></th>
                     </tr>
@@ -73,7 +84,7 @@
                         <tr>
                             <td>cd</td>
                             <td>..</td>
-                            <td>cofa do folderu niżej</td>
+                            <td>cofnij do folderu niżej</td>
                         </tr>
                         <tr>
                             <td>cd</td>
@@ -82,7 +93,7 @@
                         </tr>
                         <tr>
                             <td>mkdir</td>
-                            <td>{nazwa_folderu}</td>
+                            <td>{nazwa folderu}</td>
                             <td>stwórz nowy folder</td>
                         </tr>
                         <tr>
@@ -93,21 +104,23 @@
                         <tr>
                             <td>rm</td>
                             <td>*,  * -i,  * -f</td>
-                            <td>usuwa wszystkie pliki z katalogu, usuwa pliki z potwierdzeniem, usuwa pliki i wyłącza potwierdzenie (nawet zabezpieczone przed usunięciem)</td>
+                            <td>usuń wszystkie pliki z katalogu, usuń pliki z potwierdzeniem, usuń pliki i wyłącza potwierdzenie (nawet zabezpieczone przed usunięciem)</td>
                         </tr>
                         <tr>
                             <td>rm</td>
                             <td>-f,  -r,  -rf + {nazwa pliku/folderu}</td>
-                            <td>usuwa pliki zabezpieczone przed kopiowaniem, usuwa pliki w podkatalogach, usuwa wszystkie pliki i foldery</td>
+                            <td>usuń pliki zabezpieczone przed kopiowaniem, usuń pliki w podkatalogach, usuń wszystkie pliki i foldery</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <div class="color-row margin-bot" id="ls">
+                <h2>Pokaż pliki/foldery</h2>
+                <hr>
                 <table class="table table-sm table-striped table-bordered">
                     <thead class="thead-dark">
                     <tr>
-                        <th><b>Polecenie</b></th>
+                        <th><b>#</b></th>
                         <th><b>Parametry</b></th>
                         <th><b>Opis</b></th>
                     </tr>
@@ -183,7 +196,7 @@
                 <table class="table table-sm table-striped table-bordered">
                     <thead class="thead-dark">
                     <tr>
-                        <th><b>Polecenie</b></th>
+                        <th><b>#</b></th>
                         <th><b>Parametry</b></th>
                         <th><b>Opis</b></th>
                     </tr>
@@ -192,22 +205,211 @@
                         <tr>
                             <td>ln</td>
                             <td>{plik/folder} {nazwa_linku}</td>
-                            <td>tworzy link twardy</td>
+                            <td>stwórz link twardy</td>
                         </tr>
                         <tr>
                             <td>ln</td>
                             <td>-s {plik/folder} {nazwa_linku}</td>
-                            <td>tworzy link symboliczny</td>
+                            <td>stwórz link symboliczny</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <div class="color-row margin-bot" id="cp">
-
+                <h2>Kopiowanie zwykłe/ssh</h2>
+                <hr>
+                <table class="table table-sm table-striped table-bordered">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th><b>#</b></th>
+                        <th><b>Parametry</b></th>
+                        <th><b>Opis</b></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>cp</td>
+                        <td>{plik} {docelowy plik}, {ścieżka do pliku} {docelowa ścieżka do pliku}</td>
+                        <td>kopiuj pliki</td>
+                    </tr>
+                    <tr>
+                        <td>cp</td>
+                        <td>-r {folder lub ścieżka} {docelowy folder lub ścieżka}</td>
+                        <td>kopiuj folder z zawartością</td>
+                    </tr>
+                    <tr>
+                        <td>scp</td>
+                        <td>{źródło} {miejsce docelowe}</td>
+                        <td>kopiuj plik po ssh</td>
+                    </tr>
+                    <tr>
+                        <td>scp</td>
+                        <td>-r {źródło} {miejsce docelowe}</td>
+                        <td>kopiuj folder po ssh</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div>A i B - najczęściej przedstawiają ip albo domenę</div>
+                <br>
+                <div>Aby skopiować plik z B do A kiedy jesteśmy zalogowani do B:</div>
+                <pre>scp /ścieżka/do/pliku username@A:/ścieżka/docelowa</pre>
+                <div>Aby skopiować plik z B do A kiedy jesteśmy zalogowani do A:</div>
+                <pre>scp username@B:/ścieżka/do/pliku  /ścieżka/docelowa</pre>
+                <div>Alternatywnie dla folderu: scp -r</div>
             </div>
-            <div class="color-row margin-bot">
-
+            <div class="color-row margin-bot" id="zip">
+                <h2>Kompresja, dekompresja *.tar *.zip *.gz</h2>
+                <hr>
+                <table class="table table-sm table-striped table-bordered">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th><b>#</b></th>
+                        <th><b>Parametry</b></th>
+                        <th><b>Opis</b></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>zip</td>
+                        <td>-r archiwum.zip {folder}</td>
+                        <td>stwórz archiwum z folderu</td>
+                    </tr>
+                    <tr>
+                        <td>zip</td>
+                        <td>archiwum.zip {plikA} {plikB} ... {plik x}</td>
+                        <td>stwórz archiwum z podanych plików</td>
+                    </tr>
+                    <tr>
+                        <td>zip</td>
+                        <td>-d archiwum.zip {plikA} {plikB} ... {plik x}</td>
+                        <td>usuń plik z archiwum</td>
+                    </tr>
+                    <tr>
+                        <td>zip</td>
+                        <td>-m archiwum.zip {plikA} {plikB} ... {plik x}</td>
+                        <td>usuń oryginalne pliki po archiwizacji</td>
+                    </tr>
+                    <tr>
+                        <td>zip</td>
+                        <td>-x archiwum.zip {plikA} {plikB} ... {plik x}</td>
+                        <td>wyklucz podane pliki przed dodaniem do archiwum</td>
+                    </tr>
+                    <tr>
+                        <td>unzip</td>
+                        <td>archiwum.zip</td>
+                        <td>wypakuj pliki z archiwum</td>
+                    </tr>
+                    <tr>
+                        <td>tar</td>
+                        <td>czvf archiwum.tar.gz {plikA} {plikB} ... {plik x}</td>
+                        <td>stwórz archiwum z podanych plików</td>
+                    </tr>
+                    <tr>
+                        <td>tar</td>
+                        <td>cvf archiwum.tar {plikA} {plikB} ... {plik x}</td>
+                        <td>stwórz archiwum z podanych plików</td>
+                    </tr>
+                    <tr>
+                        <td>tar</td>
+                        <td>xzvf archiwum.tar.gz</td>
+                        <td>wypakuj pliki w aktualnym folderze</td>
+                    </tr>
+                    <tr>
+                        <td>tar</td>
+                        <td>xzvf archiwum.tar.gz -C {ścieżka}</td>
+                        <td>wypakuj pliki do podanej ścieżki</td>
+                    </tr>
+                    <tr>
+                        <td>tar</td>
+                        <td>xvf archiwum.tar -C {ścieżka}</td>
+                        <td>wypakuj pliki do podanej ścieżki (-C opcjonalnie)</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <ul>
+                        <li>c - stwórz archiwum</li>
+                        <li>z - skompresuj archiwum z gzip</li>
+                        <li>v - opcjonalnie, pokaż wypakowywane pliki</li>
+                        <li>f - pozwala na podanie nazwy archiwum</li>
+                        <li>x - wypakuj pliki</li>
+                    </ul>
+                </div>
             </div>
+
+            <div class="color-row margin-bot" id="ps">
+                <h2>Procesy</h2>
+                <hr>
+                <h2>PID - numer uruchomionego procesu w systemie</h2>
+                <table class="table table-sm table-striped table-bordered">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th><b>#</b></th>
+                        <th><b>Parametry</b></th>
+                        <th><b>Opis</b></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>ps</td>
+                        <td>aux</td>
+                        <td>pokaż szczegółowo wszystkie procesy</td>
+                    </tr>
+                    <tr>
+                        <td>ps</td>
+                        <td>-e</td>
+                        <td>pokaż wszystkie procesy</td>
+                    </tr>
+                    <tr>
+                        <td>ps</td>
+                        <td>-fC {nazwa komendy}</td>
+                        <td>pokaż procesy po nazwie komendy (np. ps -fC java)</td>
+                    </tr>
+                    <tr>
+                        <td>ps</td>
+                        <td>-fU {nazwa użytkownika}</td>
+                        <td>pokaż procesy uzytkownika</td>
+                    </tr>
+                    <tr>
+                        <td>kill</td>
+                        <td>-9 -1</td>
+                        <td>zamknij wszystkie procesy</td>
+                    </tr>
+                    <tr>
+                        <td>kill</td>
+                        <td>-9 <a href="#ps">{PID}</a></td>
+                        <td>zamknij proces o danym numerze PID</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="color-row margin-bot" id="nano">
+                <h2>Edycja pliku</h2>
+                <hr>
+                <table class="table table-sm table-striped table-bordered">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th><b>#</b></th>
+                        <th><b>Parametry</b></th>
+                        <th><b>Opis</b></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>nano</td>
+                        <td>{nazwa pliku}, {ściezka do pliku}</td>
+                        <td>edytuj plik</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <ul>
+                    <li>Ctrl + x - wyjdź + informacja czy zapisać</li>
+                    <li>Ctrl + w - znajdź</li>
+                    <li>Ctrl + y - strona w górę</li>
+                    <li>Ctrl + v - strona w dół</li>
+                </ul>
+            </div>
+
         </div>
     </div>
 </div>

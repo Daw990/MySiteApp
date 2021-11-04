@@ -32,6 +32,13 @@ h2 {
     font-size: 20px;
     font-weight: bold;
 }
+pre {
+    background-color: #f3f3f3;
+    padding: 10px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-top: 8px;
+}
 
 a {
     color: #F39117;
@@ -69,6 +76,11 @@ a:hover{
 .color-row {
     background-color: white;
     padding: 40px 40px;
+}
+
+.color-row-linux {
+    background-color: white;
+    padding: 20px;
 }
 
 .color-row-cytat {
@@ -114,6 +126,14 @@ a:hover{
     align-items: center;
     display: block;
     padding-bottom: 20px;
+}
+
+.center-slider-linux {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    display: block;
 }
 
 .img-size {
