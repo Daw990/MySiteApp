@@ -4,11 +4,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import pl.Dawid.siteApp.consumeApi.model.WeatherDto;
 import pl.Dawid.siteApp.entity.Cytaty;
 import pl.Dawid.siteApp.entity.Expenses;
 import pl.Dawid.siteApp.repository.ExpensesRepo;
 import pl.Dawid.siteApp.service.CytatyService;
 import pl.Dawid.siteApp.service.ExpensesService;
+import pl.Dawid.siteApp.service.WeatherService;
 
 import java.util.List;
 
@@ -18,6 +21,7 @@ public class MainSiteController {
 
     private final CytatyService cytatyService;
     private final ExpensesService expensesService;
+    private final WeatherService weatherService;
 
     @GetMapping(value = "/")
     public String mainSite(Model model) {
@@ -41,7 +45,7 @@ public class MainSiteController {
         return "mainWeb/projects";
     }
 
-    @GetMapping(value = "/note/ut2004")
+    @GetMapping(value = "/games/ut2004")
     public String ut2004() {
         return "note/ut2004";
     }
@@ -74,5 +78,14 @@ public class MainSiteController {
     @GetMapping(value = "/note/api")
     public String api() {
         return "note/api";
+    }
+
+    @GetMapping(value = "/note/weather")
+    public String weather(Model model,
+                          @RequestParam(name = "city", required = false, defaultValue = "Warszawa") String city) {
+        WeatherDto weatherDto = weatherService.GetWeather(city);
+        model.addAttribute("weatherDto", weatherDto);
+        model.addAttribute("city", city);
+        return "note/weather";
     }
 }

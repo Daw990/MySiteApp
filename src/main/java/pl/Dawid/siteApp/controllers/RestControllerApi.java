@@ -4,10 +4,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pl.Dawid.siteApp.consumeApi.model.WeatherDto;
 import pl.Dawid.siteApp.entity.Cytaty;
 import pl.Dawid.siteApp.entity.Expenses;
 import pl.Dawid.siteApp.service.CytatyService;
 import pl.Dawid.siteApp.service.ExpensesService;
+import pl.Dawid.siteApp.service.WeatherService;
 
 import java.util.List;
 
@@ -18,6 +20,7 @@ public class RestControllerApi {
 
     private final CytatyService cytatyService;
     private final ExpensesService expensesService;
+    private final WeatherService weatherService;
 
     @GetMapping("/cytaty")
     public List<Cytaty> getCytaty() {
@@ -52,5 +55,15 @@ public class RestControllerApi {
     @GetMapping("/expenses/inne")
     public List<Expenses> getExpensesInne() {
         return expensesService.findExpensesByCategory("Inne");
+    }
+
+    @GetMapping("/weatherFull")
+    public String getWeatherFull() {
+        return weatherService.GetWeatherString("Warszawa");
+    }
+
+    @GetMapping("/weather")
+    public WeatherDto getWeatherByCity() {
+        return weatherService.GetWeather("Warszawa");
     }
 }
