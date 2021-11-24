@@ -28,9 +28,13 @@
                     <h1><div th:text="${weatherDto.getTemperature() + ' °C'}"></div></h1>
                     <div th:text="${weatherDto.getDescription()}"></div>
                     <div th:text="'Ciśnienie: ' + ${weatherDto.getPressure()} + ' hPa'"></div>
-                    <div th:text="${weatherDto.getWind()}"></div>
                 </div>
             </div>
+            <br>
+            <form action="/note/weather">
+                <input type="text" placeholder="Zmień miasto" name="city">
+                <button type="submit">Zmień</button>
+            </form>
         </div>
     </div>
 </div>
