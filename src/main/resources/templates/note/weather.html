@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -18,23 +18,37 @@
 <body>
 
 <div th:insert="staticContent/navbar.html :: header"></div>
-
+<input type="hidden" th:value="${cities}" name="cities" id="cities">
 <div class="container">
     <div class="row row-margin">
         <div class="col-md-9 color-row">
-            <div class="row">
-                <div class="col-md-4">
-                    <div th:text="${city}"></div>
-                    <h1><div th:text="${weatherDto.getTemperature() + ' °C'}"></div></h1>
-                    <div th:text="${weatherDto.getDescription()}"></div>
-                    <div th:text="'Ciśnienie: ' + ${weatherDto.getPressure()} + ' hPa'"></div>
+            <div th:if="${!CurrentWeatherDtoListToGet.isEmpty()}">
+                <div class="row" th:each="weather : ${CurrentWeatherDtoListToGet}">
+                    <div class="col-md-4">
+                        <div th:text="${weather.getCityName()}"></div>
+                        <h1><div th:text="${weather.getTemperature() + ' °C'}"></div></h1>
+                        <div th:text="${weather.getDescription()}"></div>
+                        <div th:text="'Ciśnienie: ' + ${weather.getPressure()} + ' hPa'"></div>
+                    </div>
+                    <div class="col-md-3">
+                        <a th:data-thing="${weather.getCityfromTemplate}" onclick="delCityFunc(this.getAttribute('data-thing'));"
+                           class="btn btn-danger btn-sm">
+                            Usuń2
+                        </a>
+                    </div>
+
+                </div>
+                <br>
+                <div th:if="${CurrentWeatherDtoListToGet.size()<3}">
+                    <a class="btn btn-info btn-sm" onclick="redirFunc()">
+                        Dodaj
+                    </a>
+                    <input type="text" placeholder="Dodaj miasto" id="changeCity" name="addCity">
+                </div>
+                <div th:unless="${CurrentWeatherDtoListToGet.size()<3}">
+                    <h2>Maksymalna ilość miast!</h2>
                 </div>
             </div>
-            <br>
-            <form action="/note/weather">
-                <input type="text" placeholder="Zmień miasto" name="city">
-                <button type="submit">Zmień</button>
-            </form>
         </div>
     </div>
 </div>
@@ -53,5 +67,35 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="../js/simple-slide.js" type="text/javascript"></script>
+<script>
+    function redirFunc() {
+        var newCity = document.getElementById("changeCity").value;
+        var newUrl = window.location.href + "," + newCity;
+        window.location.href = newUrl;
+    }
+
+    function delCityFunc(city) {
+        const cities = document.getElementById("cities").value;
+        var myUrl = window.location.href;
+        var deleteCityWithComma = window.location.href.replace(city+",", "");
+        var deleteCity = window.location.href.replace(city, "");
+
+       // if (myUrl.charAt(myUrl.length-1) === ",") window.location.href = deleteCity;
+        //else window.location.href = deleteCityWithComma;
+        var word = window.location.href.indexOf(city);
+        var buildUrl = myUrl.slice(0, word-1) + myUrl.slice(word+city.length);
+        var delCityBySlice = myUrl.slice(0, word) + myUrl.slice(word+city.length+1);
+
+
+        if ((myUrl.charAt(myUrl.indexOf(city)-1)) === "=" ) window.location.href = delCityBySlice;
+        else window.location.href = buildUrl;
+
+        //window.location.href = myUrl.charAt(myUrl.indexOf(city)-1);
+    }
+
+
+
+    //document.getElementById("clickMe").onclick =
+</script>
 </body>
 </html>

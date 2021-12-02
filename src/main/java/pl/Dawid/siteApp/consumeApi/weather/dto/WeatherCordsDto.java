@@ -3,7 +3,7 @@ package pl.Dawid.siteApp.consumeApi.weather.dto;
 import lombok.Getter;
 
 @Getter
-public class WeatherWindDto {
-
-    private float speed;
+public class WeatherCordsDto {
+    private float lat;
+    private float lon;
 }

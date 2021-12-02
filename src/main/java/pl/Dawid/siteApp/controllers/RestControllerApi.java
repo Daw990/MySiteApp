@@ -4,7 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.Dawid.siteApp.consumeApi.model.WeatherDto;
+import pl.Dawid.siteApp.consumeApi.model.CurrentWeatherDto;
+import pl.Dawid.siteApp.consumeApi.model.WeatherHourlyDailyDto;
 import pl.Dawid.siteApp.entity.Cytaty;
 import pl.Dawid.siteApp.entity.Expenses;
 import pl.Dawid.siteApp.service.CytatyService;
@@ -57,13 +58,18 @@ public class RestControllerApi {
         return expensesService.findExpensesByCategory("Inne");
     }
 
-    @GetMapping("/weatherFull")
+    @GetMapping("/weather/weatherFull")
     public String getWeatherFull() {
-        return weatherService.GetWeatherString("Warszawa");
+        return weatherService.GetCurrentWeatherFullJson("Warszawa");
     }
 
-    @GetMapping("/weather")
-    public WeatherDto getWeatherByCity() {
-        return weatherService.GetWeather("Warszawa");
+    @GetMapping("/weather/weather")
+    public CurrentWeatherDto getWeatherByCity() {
+        return weatherService.GetCurerntWeather("Warszawa");
+    }
+
+    @GetMapping("/weather/weather-daily")
+    public WeatherHourlyDailyDto getWeatherByCityDaily() {
+        return weatherService.getWeatherhourlyDaily("Poznan");
     }
 }
