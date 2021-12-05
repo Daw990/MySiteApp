@@ -11,6 +11,7 @@ import java.util.List;
 @Getter
 @Builder
 public class WeatherDailyMapDto {
+    private String icon;
     private String weatherView;
     private String weatherViewEng;
     private String date;

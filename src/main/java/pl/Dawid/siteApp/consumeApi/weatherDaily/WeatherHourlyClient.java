@@ -55,6 +55,7 @@ public class WeatherHourlyClient {
                     .tempFeelsLike(day.getFeels_like())
                     .weatherView(day.getWeather().get(0).getDescription())
                     .weatherViewEng(day.getWeather().get(0).getMain())
+                    .icon(day.getWeather().get(0).getIcon())
                     .build();
             weatherDailyMapDtos.add(weatherDailyMapDto);
         });

@@ -45,9 +45,11 @@
                         <li class="" th:each="weatherDay : ${weather.getWeatherDailyMapDtoList()}">
                             <div class="row">
                                 <div class="col-md-3" th:text="${weatherDay.getDate()}"></div>
-                                <div class="col-md-3"
-                                     th:text="${weatherDay.getTemperature().getMax()} + ' / ' + ${weatherDay.getTemperature().getMin()} +' °C'"></div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
+                                    <img th:src="'/img/weatherImg/' + ${weatherDay.getIcon()} + '.png'" style="width: 25px;">
+                                    <span th:text="${weatherDay.getTemperature().getMax()} + ' / ' + ${weatherDay.getTemperature().getMin()} +' °C'"></span>
+                                </div>
+                                <div class="col-md-5">
                                         <span th:text="${weatherDay.weatherView}"></span>
                                         <img src="/img/arrDown.png" class=""
                                              style="width: 20px; float: right;">
