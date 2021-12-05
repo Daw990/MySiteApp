@@ -25,6 +25,6 @@ public class WeatherDailyMapDto {
     private float wind_speed;
     private float pop;
     private float rain;
-    private TempDailyDto temperature;
+    private TempDailyMapDto temperature;
     private TempFeelsLikeDto tempFeelsLike;
 }

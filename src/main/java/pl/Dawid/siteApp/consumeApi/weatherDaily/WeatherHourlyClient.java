@@ -5,7 +5,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import pl.Dawid.siteApp.consumeApi.model.WeatherHourlyDailyDto;
 
+import pl.Dawid.siteApp.consumeApi.weatherDaily.dto.TempDailyDto;
 import pl.Dawid.siteApp.consumeApi.weatherDaily.dto.WeatherDailyDto;
+import pl.Dawid.siteApp.consumeApi.weatherDaily.dto.mapper.TempDailyMapDto;
 import pl.Dawid.siteApp.consumeApi.weatherDaily.dto.mapper.WeatherDailyMapDto;
 import pl.Dawid.siteApp.consumeApi.weatherDaily.dto.mapper.WeatherNowDto;
 import pl.Dawid.siteApp.consumeApi.weatherDaily.dto.WeatherDailyFull;
@@ -38,11 +40,22 @@ public class WeatherHourlyClient {
     }
 
     private List<WeatherDailyMapDto> mapWeatherDailyMapDto(WeatherDailyFull weatherDailyFull) {
-        SimpleDateFormat currentDateFormat = new SimpleDateFormat("E d/MM", new Locale("PL"));
+        SimpleDateFormat currentDateFormat = new SimpleDateFormat("d/MM E", new Locale("PL"));
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
         List<WeatherDailyMapDto> weatherDailyMapDtos = new ArrayList<>();
 
         weatherDailyFull.getDaily().forEach(day -> {
+
+            TempDailyMapDto mapTempDailyDto = TempDailyMapDto.builder()
+                    .tempDay(Math.round(day.getTemp().getDay()))
+                    .tempNight(Math.round(day.getTemp().getNight()))
+                    .tempEve(Math.round(day.getTemp().getEve()))
+                    .tempMorn(Math.round(day.getTemp().getMorn()))
+                    .tempMax(Math.round(day.getTemp().getMax()))
+                    .tempMin(Math.round(day.getTemp().getMin()))
+                    .tempEve(Math.round(day.getTemp().getEve()))
+                    .build();
+
             WeatherDailyMapDto weatherDailyMapDto = WeatherDailyMapDto.builder()
                     .date(currentDateFormat.format(new Timestamp(day.getDt()*1000)))
                     .sunriseTime(timeFormat.format(new Timestamp(day.getSunrise()*1000)))
@@ -51,7 +64,7 @@ public class WeatherHourlyClient {
                     .moonsetTime(timeFormat.format(new Timestamp(day.getMoonset()*1000)))
                     .pressure(day.getPressure())
                     .humidity(day.getHumidity())
-                    .temperature(day.getTemp())
+                    .temperature(mapTempDailyDto)
                     .tempFeelsLike(day.getFeels_like())
                     .weatherView(day.getWeather().get(0).getDescription())
                     .weatherViewEng(day.getWeather().get(0).getMain())
@@ -66,7 +79,7 @@ public class WeatherHourlyClient {
         SimpleDateFormat currentDateFormat = new SimpleDateFormat("d/MM/yyyy");
         SimpleDateFormat timeFormatWithSec = new SimpleDateFormat("HH:mm:ss");
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
-        WeatherNowDto weatherNowDto = WeatherNowDto.builder()
+        return WeatherNowDto.builder()
                 .currentDate(currentDateFormat.format(new Timestamp(weatherDailyFull.getCurrent().getDt()*1000)))
                 .currentTime(timeFormatWithSec.format(new Timestamp(weatherDailyFull.getCurrent().getDt()*1000)))
                 .sunriseTime(timeFormat.format(new Timestamp(weatherDailyFull.getCurrent().getSunrise()*1000)))
@@ -78,7 +91,7 @@ public class WeatherHourlyClient {
                 .weatherView(weatherDailyFull.getCurrent().getWeather().get(0).getDescription())
                 .weatherViewEng(weatherDailyFull.getCurrent().getWeather().get(0).getMain())
                 .build();
-        return weatherNowDto;
     }
+
 
 }
