@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/social.css">
+
+    <link rel="icon" href="../img/daw_logo.png">
+
+    <title>Dawid Marszałkowski - Pogoda </title>
+</head>
+<body>
+
+<div th:insert="staticContent/navbar.html :: header"></div>
+<input type="hidden" th:value="${cities}" name="cities" id="cities">
+<div class="container row-margin color-row">
+
+    <div th:if="${!CurrentWeatherDtoListToGet.isEmpty()}">
+        <!--                second weather test-->
+        <div class="row" th:each="weather : ${CurrentWeatherDtoListToGet}">
+            <div class="col-md-4">
+                <span style="font-size: xx-large;" th:text="${weather.getCityName()}"></span>
+                <a th:data-thing="${weather.cityfromTemplate}" onclick="delCityFunc(this.getAttribute('data-thing'));"
+                   class="btn btn-sm btn-danger"> Usuń
+                </a>
+                <h1>
+                    <div th:text="${weather.weatherNowDto.getTemp() + ' °C'}"></div>
+                </h1>
+                <div th:text="${weather.weatherNowDto.getWeatherView()}"></div>
+                <div th:text="'Ciśnienie: ' + ${weather.weatherNowDto.getPressure()} + ' hPa'"></div>
+                <div th:text="'Wschód słońca: ' + ${weather.weatherNowDto.getSunriseTime()}"></div>
+                <div th:text="'Zachód słońca: ' + ${weather.weatherNowDto.getSunsetTime()}"></div>
+            </div>
+            <div class="col-md-8 footer-center">
+                <div class="scroll-weather">
+                    <ul style="list-style: none; padding: 0;">
+                        <h1>Pogoda 8-dni</h1>
+                        <li class="" th:each="weatherDay : ${weather.getWeatherDailyMapDtoList()}">
+                            <div class="row">
+                                <div class="col-md-3" th:text="${weatherDay.getDate()}"></div>
+                                <div class="col-md-3"
+                                     th:text="${weatherDay.getTemperature().getMax()} + ' / ' + ${weatherDay.getTemperature().getMin()} +' °C'"></div>
+                                <div class="col-md-6">
+                                        <span th:text="${weatherDay.weatherView}"></span>
+                                        <img src="/img/arrDown.png" class=""
+                                             style="width: 20px; float: right;">
+                                </div>
+<!--                                <div class="col-md-1" style="float: right;"><img src="/img/arrDown.png" class="img-size"-->
+<!--                                                                                 style="width:100%"></div>-->
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+        </div>
+
+
+        <br>
+        <div th:if="${CurrentWeatherDtoListToGet.size()<3}">
+            <a class="btn btn-info btn-sm" onclick="redirFunc()">
+                Dodaj
+            </a>
+            <input type="text" placeholder="Dodaj miasto" id="changeCity" name="addCity">
+        </div>
+        <div th:unless="${CurrentWeatherDtoListToGet.size()<3}">
+            <h2>Maksymalna ilość miast!</h2>
+        </div>
+    </div>
+</div>
+
+<span class="scrollTopButton"></span>
+
+<div th:include="staticContent/footer.html">
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script src="../js/simple-slide.js" type="text/javascript"></script>
+<script>
+    function redirFunc() {
+        var newCity = document.getElementById("changeCity").value;
+        var newUrl = window.location.href + "," + newCity;
+        window.location.href = newUrl;
+    }
+
+    function delCityFunc(city) {
+        const cities = document.getElementById("cities").value;
+        var myUrl = window.location.href;
+        var deleteCityWithComma = window.location.href.replace(city + ",", "");
+        var deleteCity = window.location.href.replace(city, "");
+
+        // if (myUrl.charAt(myUrl.length-1) === ",") window.location.href = deleteCity;
+        //else window.location.href = deleteCityWithComma;
+        var word = window.location.href.indexOf(city);
+        var buildUrl = myUrl.slice(0, word - 1) + myUrl.slice(word + city.length);
+        var delCityBySlice = myUrl.slice(0, word) + myUrl.slice(word + city.length + 1);
+
+
+        if ((myUrl.charAt(myUrl.indexOf(city) - 1)) === "=") window.location.href = delCityBySlice;
+        else window.location.href = buildUrl;
+
+        //window.location.href = myUrl.charAt(myUrl.indexOf(city)-1);
+    }
+
+
+    //document.getElementById("clickMe").onclick =
+</script>
+</body>
+</html>

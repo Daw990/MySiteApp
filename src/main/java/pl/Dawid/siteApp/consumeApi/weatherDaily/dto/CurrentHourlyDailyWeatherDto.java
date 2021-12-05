@@ -1,4 +1,4 @@
-package pl.Dawid.siteApp.consumeApi.weatherHourly.dto;
+package pl.Dawid.siteApp.consumeApi.weatherDaily.dto;
 
 import lombok.Getter;
 import pl.Dawid.siteApp.consumeApi.weather.dto.WeatherJson;
@@ -16,6 +16,4 @@ public class CurrentHourlyDailyWeatherDto {
     private float wind_speed;
 
     private List<WeatherJson> weather;
-
-
 }

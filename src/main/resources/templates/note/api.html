@@ -36,9 +36,12 @@
             <div><span>Inne - </span><a href="/api/expenses/inne">/api/expenses/inne</a></div>
             <br>
             <h2>API - Weather</h2>
-            <div><span>Aktualna pogoda (wybrane pola) - </span><a href="/api/weather/weather">/api/expenses/rachunki</a></div>
-            <div><span>Aktualna pełna pogoda - </span><a href="/api/weather/weatherFull">/api/expenses/rachunki</a></div>
-            <div><span>Aktualna pełna pogoda co godzinę + 7 dni (wybrane pola) - </span><a href="/api/weather/weather-daily">/api/expenses/rachunki</a></div>
+            <hr>
+            <h5>w miejsce {city} wpisujemy nazwę miasta. Przykład:</h5>
+            <a href="/api/weather/weather?city=warszawa">/api/weather/weather?city=warszawa</a>
+            <br><br>
+            <div><span>Aktualna pogoda - </span><a href="/api/weather/weather?city=warszawa">/api/weather/weather?city={city}</a></div>
+            <div><span>Aktualna pełna pogoda na 8 dni - </span><a href="/api/weather/weather-daily?city=warszawa">/api/weather/weather-daily?city={city}</a></div>
         </div>
 
     </div>

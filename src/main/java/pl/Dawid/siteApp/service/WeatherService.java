@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import pl.Dawid.siteApp.consumeApi.model.WeatherHourlyDailyDto;
 import pl.Dawid.siteApp.consumeApi.weather.CurrentWeatherClient;
 import pl.Dawid.siteApp.consumeApi.model.CurrentWeatherDto;
-import pl.Dawid.siteApp.consumeApi.weatherHourly.WeatherHourlyClient;
+import pl.Dawid.siteApp.consumeApi.weatherDaily.WeatherHourlyClient;
 
 @Service
 @Slf4j
@@ -26,6 +26,7 @@ public class WeatherService {
 
     public WeatherHourlyDailyDto getWeatherhourlyDaily(String city) {
         CurrentWeatherDto currentWeatherDto = currentWeatherClient.getCurrentWeatcherByCity(city);
-        return weatherHourlyClient.getDailyHourlyWeatcherByCity(currentWeatherDto.getCoordLat(), currentWeatherDto.getCoordLon());
+        return weatherHourlyClient.getDailyHourlyWeatcherByCity(currentWeatherDto.getCoordLat(),
+                currentWeatherDto.getCoordLon(), currentWeatherDto.getCityName());
     }
 }

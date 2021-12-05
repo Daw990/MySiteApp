@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.Dawid.siteApp.consumeApi.model.CurrentWeatherDto;
+import pl.Dawid.siteApp.consumeApi.model.WeatherHourlyDailyDto;
 import pl.Dawid.siteApp.entity.Cytaty;
 import pl.Dawid.siteApp.entity.Expenses;
 import pl.Dawid.siteApp.service.CytatyService;
@@ -95,5 +96,22 @@ public class MainSiteController {
         model.addAttribute("cities", cities);
         model.addAttribute("CurrentWeatherDtoListToGet", currentWeatherDtoListToGet);
         return "note/weather";
+    }
+
+    @GetMapping(value = "/note/weather-daily")
+    public String weatherDaily(Model model,
+                          @RequestParam(name = "cities", required = false) List<String> cities) {
+        //WeatherDto weatherDto = weatherService.GetWeather(city);
+        List<WeatherHourlyDailyDto> currentWeatherDtoListToGet = new ArrayList<>();
+
+        cities.forEach(city -> {
+            WeatherHourlyDailyDto currentWeatherDto = weatherService.getWeatherhourlyDaily(city);
+            currentWeatherDto.setCityfromTemplate(city);
+            currentWeatherDtoListToGet.add(currentWeatherDto);
+        });
+
+        model.addAttribute("cities", cities);
+        model.addAttribute("CurrentWeatherDtoListToGet", currentWeatherDtoListToGet);
+        return "note/weather-daily";
     }
 }

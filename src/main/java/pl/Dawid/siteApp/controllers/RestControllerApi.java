@@ -3,6 +3,7 @@ package pl.Dawid.siteApp.controllers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pl.Dawid.siteApp.consumeApi.model.CurrentWeatherDto;
 import pl.Dawid.siteApp.consumeApi.model.WeatherHourlyDailyDto;
@@ -59,17 +60,17 @@ public class RestControllerApi {
     }
 
     @GetMapping("/weather/weatherFull")
-    public String getWeatherFull() {
-        return weatherService.GetCurrentWeatherFullJson("Warszawa");
+    public String getWeatherFull(@RequestParam String city) {
+        return weatherService.GetCurrentWeatherFullJson(city);
     }
 
     @GetMapping("/weather/weather")
-    public CurrentWeatherDto getWeatherByCity() {
-        return weatherService.GetCurerntWeather("Warszawa");
+    public CurrentWeatherDto getWeatherByCity(@RequestParam String city) {
+        return weatherService.GetCurerntWeather(city);
     }
 
     @GetMapping("/weather/weather-daily")
-    public WeatherHourlyDailyDto getWeatherByCityDaily() {
-        return weatherService.getWeatherhourlyDaily("Poznan");
+    public WeatherHourlyDailyDto getWeatherByCityDaily(@RequestParam String city) {
+        return weatherService.getWeatherhourlyDaily(city);
     }
 }

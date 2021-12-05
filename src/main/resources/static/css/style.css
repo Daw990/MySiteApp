@@ -219,6 +219,12 @@ a:hover{
     color: black;
 }
 
+.scroll-weather {
+    width: 100%;
+    background-color: #bbf1bb;
+    white-space: nowrap;
+}
+
 .input-form {
 
 }
